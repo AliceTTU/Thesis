@@ -1,12 +1,12 @@
-\contentsline {section}{\numberline {1}Introduction}{9}{section.1}
-\contentsline {section}{\numberline {2}Terms and definition}{10}{section.2}
-\contentsline {section}{\numberline {3}Related Work}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Background}{11}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Related Work}{11}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Conclusions}{11}{subsection.3.3}
-\contentsline {section}{\numberline {4}Approach}{12}{section.4}
-\contentsline {section}{\numberline {5}Evaluation}{13}{section.5}
-\contentsline {section}{\numberline {6}Future Work}{14}{section.6}
-\contentsline {section}{\numberline {7}Conclusions}{15}{section.7}
-\contentsline {section}{References}{16}{section.7}
-\contentsline {section}{\numberline {A}Appendix 1}{17}{appendix.1}
+\contentsline {section}{\numberline {1}Introduction}{8}{section.1}
+\contentsline {section}{\numberline {2}Terms and definition}{9}{section.2}
+\contentsline {section}{\numberline {3}Background and Related Work}{10}{section.3}
+\contentsline {subsection}{\numberline {3.1}Data Deduplication}{10}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Related Work}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Summary}{10}{subsection.3.3}
+\contentsline {section}{\numberline {4}Approach}{11}{section.4}
+\contentsline {section}{\numberline {5}Evaluation}{12}{section.5}
+\contentsline {section}{\numberline {6}Future Work}{13}{section.6}
+\contentsline {section}{\numberline {7}Conclusions}{14}{section.7}
+\contentsline {section}{References}{15}{section.7}
+\contentsline {section}{\numberline {A}Appendix 1}{16}{appendix.1}

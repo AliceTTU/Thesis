@@ -136,7 +136,7 @@ Master Thesis\\[2cm]
 
 \begin{flushright}
 Supervisor: Ahto Buldas\\[0cm]
-MsC\\[0cm]
+Professor \\[0cm]
 \end{flushright}
 
 \cfoot{Tallinn 2016} 
@@ -190,23 +190,23 @@ The thesis is in [language] and contains [pages] pages of text, [chapters] chapt
 
 %---------------------Glossary of terms and Abbreviations---------------------
 
-\section*{\begin{center}
-Glossary of Terms and Abbreviations
-\end{center}}
-Lühendite  ning  mõistete  sõnastikku  lisatakse kõik töö põhitekstis kasutatud  uued  ning  ka mitmetähenduslikud üldtuntud terminid. Näiteks inglisekeelne lühend PC  võib tähendada nii Personal Computer kui ka Program Counter, sõltuvalt kontekstist. Lühendid ja mõisted esitatakse tabuleeritult kahte tulpa selliselt, et vasakul on esitatud lühend või mõiste ja paremal tulbas seletus. Inglisekeelsed sõnad seletustes esitatakse kaldkirjas. Alltoodud näited esitavad lühendite ja mõistete sõnastiku korrektset vormistamist.
+%\section*{\begin{center}
+%Glossary of Terms and Abbreviations
+%\end{center}}
+%Lühendite  ning  mõistete  sõnastikku  lisatakse kõik töö põhitekstis kasutatud  uued  ning  ka mitmetähenduslikud üldtuntud terminid. Näiteks inglisekeelne lühend PC  võib tähendada nii Personal Computer kui ka Program Counter, sõltuvalt kontekstist. Lühendid ja mõisted esitatakse tabuleeritult kahte tulpa selliselt, et vasakul on esitatud lühend või mõiste ja paremal tulbas seletus. Inglisekeelsed sõnad seletustes esitatakse kaldkirjas. Alltoodud näited esitavad lühendite ja mõistete sõnastiku korrektset vormistamist.
 
-\begin{tabular}{p{3 cm}ll}
-IPv6&Internet Protocol version 6\\
-ICMPv6&Internet Control Message Protocol version 6\\
-Node&ll\\
-NAT&dd\\
-IANA&Internet Assigned Numbers Authority\\
-BYID&Bring Your Own Device\\
-OS&Operating System\\
-IoT&Internet of Things\\
-rootkit&ff
-\end{tabular}
-\pagebreak
+%\begin{tabular}{p{3 cm}ll}
+%IPv6&Internet Protocol version 6\\
+%ICMPv6&Internet Control Message Protocol version 6\\
+%Node&ll\\
+%NAT&dd\\
+%IANA&Internet Assigned Numbers Authority\\
+%BYID&Bring Your Own Device\\
+%OS&Operating System\\
+%IoT&Internet of Things\\
+%rootkit&ff
+%\end{tabular}
+%\pagebreak
 
 \tableofcontents
 \newpage
@@ -218,12 +218,11 @@ rootkit&ff
 \section{Introduction}
 \label{sec:1}
 
-
 Describes the problem statement, illustrates why this is a problem and describes the contribution the thesis makes in solving this problem. Optionally, 
 it can give a short description (1-3 sentences each) of the remaining chapters. Good introductions are concise, typically no longer than 4 pages.\\
-The introduction reveals the full (but summarized) results of your work. This appears counter-intuitive: does this not break the tension, 
-like revealing the name of the murderer on the first page of a thriller? Yes, it does. That is the whole point. A thesis, and thus its architecture, 
-aims primarily to inform, not entertain.
+%The introduction reveals the full (but summarized) results of your work. This appears counter-intuitive: does this not break the tension, 
+%like revealing the name of the murderer on the first page of a thriller? Yes, it does. That is the whole point. A thesis, and thus its architecture, 
+%aims primarily to inform, not entertain.
 
 \pagebreak
 %---------------------------------TERMS AND DEFINITION -----------------------------------------
@@ -234,23 +233,30 @@ Here is where you define what you mean by it. The key to this chapter is to keep
 Whenever you can, don’t reinvent a description for an established concept, but reference a text book or paper instead.
 \pagebreak
 %------------------------------BACKGROUND AND RELATED WORK-----------------------------------
-\section{Related Work}
+\section{Background and Related Work}
 \label{sec:3}
 
 
-\subsection{Background}
+\subsection{Data Deduplication}
 \label{sub:background}
+
+The aim of data deduplication is to reduce the disk space and bandwidth needed to transfer the data. 
+
+
+
+Describe how deduplication works. 
 
 
 \subsection{Related Work}
 \label{sub:covert}
 
 Collects descriptions of existing work that is related to your work. Related, in this sense, means aims to solve the same problem or uses the same approach to solve a different problem. 
-This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
-This last part is absolutely crucial: the reader should not have to figure out the relation himself.
-Is your piece better from some perspective? More generalizable? More performant? Simpler? It is ok if it is not, but I want you to tell me.
 
-\subsection{Conclusions}
+%This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
+%This last part is absolutely crucial: the reader should not have to figure out the relation himself.
+%Is your piece better from some perspective? More generalizable? More performant? Simpler? It is ok if it is not, but I want you to tell me.
+
+\subsection{Summary}
 
 \pagebreak
 
@@ -258,18 +264,39 @@ Is your piece better from some perspective? More generalizable? More performant?
 \section{Approach}
 \label{sec:4}
 
-Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
+%Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
+
+\begin{enumerate}
+
+  \item Review existing solutions of data ownership problem in de-duplicated cloud storage. 
+
+  \item Identified most favorable cases in terms of  security and efficiency and cost. 
+
+  \item Based on those case  build a framework, which will help customers to choose secure and efficient approaches.     
+
+\end{enumerate}
+
+
 
 \pagebreak
 
 %------------------------------EVALUATION-----------------------------------
 \section{Evaluation}
 \label{sec:5}
+Demonstrate why the developed framework  is secure and efficient. 
 
-Describes why your approach really solves the problem it claims to solve. You implemented a novel algorithm for X? 
-This chapter describes how you ran it on a dataset and reports the results you measured. You replicated a study? This chapter gives the results and your interpretations.
 
-The Appraoch and Evaluation chapters contain the meat of your thesis. Often, they make up half or more of the pages of the entire document.
+\begin{enumerate}
+ \item Time complexity evaluation.
+ \item Cost analyses. 
+\end{enumerate}
+
+
+
+%Describes why your approach really solves the problem it claims to solve. You implemented a novel algorithm for X? 
+%This chapter describes how you ran it on a dataset and reports the results you measured. You replicated a study? This chapter gives the results and your interpretations.
+
+%The Appraoch and Evaluation chapters contain the meat of your thesis. Often, they make up half or more of the pages of the entire document.
 
 \pagebreak
 
@@ -278,18 +305,20 @@ The Appraoch and Evaluation chapters contain the meat of your thesis. Often, the
 \label{sec:6}
 
  In science folklore, the merit of a research question is compounded by the number of interesting follow-up research questions it raises. 
- So to show the merit of the problem you worked on, you list these questions here. If you don’t care about research folklore (I did not as a student),
- this chapter is still useful: whenever you stumble across something that you should do if you had unlimited time, but cannot do since you don’t, you describe it here. 
- Typical candidates are evaluation on more study objects, investigation of potential threats to validity, … 
- The point here is to inform the reader (and your supervisor) that you were aware of these limitatons. Limit this chapter to very few pages. 
- Two is entirely fine, even for a Master’s thesis.
+ So to show the merit of the problem you worked on, you list these questions here.
+ %If you don’t care about research folklore (I did not as a student),
+ %this chapter is still useful: whenever you stumble across something that you should do if you had unlimited time, but cannot do since you don’t, you describe it here. 
+ %Typical candidates are evaluation on more study objects, investigation of potential threats to validity, … 
+ %The point here is to inform the reader (and your supervisor) that you were aware of these limitatons. Limit this chapter to very few pages. 
+ %Two is entirely fine, even for a Master’s thesis.
 \pagebreak
 
 
 %------------------------------CONCLUSIONS-----------------------------------
 \section{Conclusions}
 \label{sec:7}
-Short summary of the contribution and its implications. The goal is to drive home the result of your thesis. Do not repeat all the stuff you have written in other parts of the thesis in detail. Again, limit this chapter to very few pages. 
+Short summary of the contribution and its implications. The goal is to drive home the result of your thesis.
+Do not repeat all the stuff you have written in other parts of the thesis in detail. Again, limit this chapter to very few pages. 
 The shorter, the easier it is to keep consistent with the parts it summarizes.
 
 \pagebreak

@@ -136,7 +136,7 @@ Master Thesis\\[2cm]
 
 \begin{flushright}
 Supervisor: Ahto Buldas\\[0cm]
-MsC\\[0cm]
+Prof.\\[0cm]
 \end{flushright}
 
 \cfoot{Tallinn 2016} 
@@ -190,23 +190,23 @@ The thesis is in [language] and contains [pages] pages of text, [chapters] chapt
 
 %---------------------Glossary of terms and Abbreviations---------------------
 
-\section*{\begin{center}
-Glossary of Terms and Abbreviations
-\end{center}}
-Lühendite  ning  mõistete  sõnastikku  lisatakse kõik töö põhitekstis kasutatud  uued  ning  ka mitmetähenduslikud üldtuntud terminid. Näiteks inglisekeelne lühend PC  võib tähendada nii Personal Computer kui ka Program Counter, sõltuvalt kontekstist. Lühendid ja mõisted esitatakse tabuleeritult kahte tulpa selliselt, et vasakul on esitatud lühend või mõiste ja paremal tulbas seletus. Inglisekeelsed sõnad seletustes esitatakse kaldkirjas. Alltoodud näited esitavad lühendite ja mõistete sõnastiku korrektset vormistamist.
+%\section*{\begin{center}
+%Glossary of Terms and Abbreviations
+%\end{center}}
+%Lühendite  ning  mõistete  sõnastikku  lisatakse kõik töö põhitekstis kasutatud  uued  ning  ka mitmetähenduslikud üldtuntud terminid. Näiteks inglisekeelne lühend PC  võib tähendada nii Personal Computer kui ka Program Counter, sõltuvalt kontekstist. Lühendid ja mõisted esitatakse tabuleeritult kahte tulpa selliselt, et vasakul on esitatud lühend või mõiste ja paremal tulbas seletus. Inglisekeelsed sõnad seletustes esitatakse kaldkirjas. Alltoodud näited esitavad lühendite ja mõistete sõnastiku korrektset vormistamist.
 
-\begin{tabular}{p{3 cm}ll}
-IPv6&Internet Protocol version 6\\
-ICMPv6&Internet Control Message Protocol version 6\\
-Node&ll\\
-NAT&dd\\
-IANA&Internet Assigned Numbers Authority\\
-BYID&Bring Your Own Device\\
-OS&Operating System\\
-IoT&Internet of Things\\
-rootkit&ff
-\end{tabular}
-\pagebreak
+%\begin{tabular}{p{3 cm}ll}
+%IPv6&Internet Protocol version 6\\
+%ICMPv6&Internet Control Message Protocol version 6\\
+%Node&ll\\
+%NAT&dd\\
+%IANA&Internet Assigned Numbers Authority\\
+%BYID&Bring Your Own Device\\
+%OS&Operating System\\
+%IoT&Internet of Things\\
+%rootkit&ff
+%\end{tabular}
+%\pagebreak
 
 \tableofcontents
 \newpage
@@ -218,12 +218,11 @@ rootkit&ff
 \section{Introduction}
 \label{sec:1}
 
-
 Describes the problem statement, illustrates why this is a problem and describes the contribution the thesis makes in solving this problem. Optionally, 
 it can give a short description (1-3 sentences each) of the remaining chapters. Good introductions are concise, typically no longer than 4 pages.\\
-The introduction reveals the full (but summarized) results of your work. This appears counter-intuitive: does this not break the tension, 
-like revealing the name of the murderer on the first page of a thriller? Yes, it does. That is the whole point. A thesis, and thus its architecture, 
-aims primarily to inform, not entertain.
+%The introduction reveals the full (but summarized) results of your work. This appears counter-intuitive: does this not break the tension, 
+%like revealing the name of the murderer on the first page of a thriller? Yes, it does. That is the whole point. A thesis, and thus its architecture, 
+%aims primarily to inform, not entertain.
 
 \pagebreak
 %---------------------------------TERMS AND DEFINITION -----------------------------------------
@@ -234,21 +233,28 @@ Here is where you define what you mean by it. The key to this chapter is to keep
 Whenever you can, don’t reinvent a description for an established concept, but reference a text book or paper instead.
 \pagebreak
 %------------------------------BACKGROUND AND RELATED WORK-----------------------------------
-\section{Related Work}
+\section{Background and Related Work}
 \label{sec:3}
 
 
-\subsection{Background}
+\subsection{Data Deduplication}
 \label{sub:background}
+
+The aim of data deduplication is to reduce the disk space and bandwidth needed to transfer the data. 
+
+
+
+Describe how deduplication works. 
 
 
 \subsection{Related Work}
 \label{sub:covert}
 
 Collects descriptions of existing work that is related to your work. Related, in this sense, means aims to solve the same problem or uses the same approach to solve a different problem. 
-This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
-This last part is absolutely crucial: the reader should not have to figure out the relation himself.
-Is your piece better from some perspective? More generalizable? More performant? Simpler? It is ok if it is not, but I want you to tell me.
+
+%This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
+%This last part is absolutely crucial: the reader should not have to figure out the relation himself.
+%Is your piece better from some perspective? More generalizable? More performant? Simpler? It is ok if it is not, but I want you to tell me.
 
 \subsection{Conclusions}
 
@@ -258,18 +264,39 @@ Is your piece better from some perspective? More generalizable? More performant?
 \section{Approach}
 \label{sec:4}
 
-Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
+%Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
+
+\begin{enumerate}
+
+  \item Review existing solutions of data ownership problem in de-duplicated cloud storage. 
+
+  \item Identified most favorable cases in terms of  security and efficiency and cost. 
+
+  \item Based on those case  build a framework, which will help customers to choose secure and efficient approaches.     
+
+\end{enumerate}
+
+
 
 \pagebreak
 
 %------------------------------EVALUATION-----------------------------------
 \section{Evaluation}
 \label{sec:5}
+Demonstrate why the developed framework  is secure and efficient. 
 
-Describes why your approach really solves the problem it claims to solve. You implemented a novel algorithm for X? 
-This chapter describes how you ran it on a dataset and reports the results you measured. You replicated a study? This chapter gives the results and your interpretations.
 
-The Appraoch and Evaluation chapters contain the meat of your thesis. Often, they make up half or more of the pages of the entire document.
+\begin{enumerate}
+ \item Time complexity evaluation.
+ \item Cost analyses. 
+\end{enumerate}
+
+
+
+%Describes why your approach really solves the problem it claims to solve. You implemented a novel algorithm for X? 
+%This chapter describes how you ran it on a dataset and reports the results you measured. You replicated a study? This chapter gives the results and your interpretations.
+
+%The Appraoch and Evaluation chapters contain the meat of your thesis. Often, they make up half or more of the pages of the entire document.
 
 \pagebreak
 
@@ -278,23 +305,20 @@ The Appraoch and Evaluation chapters contain the meat of your thesis. Often, the
 \label{sec:6}
 
  In science folklore, the merit of a research question is compounded by the number of interesting follow-up research questions it raises. 
- So to show the merit of the problem you worked on, you list these questions here. If you don’t care about research folklore (I did not as a student),
- this chapter is still useful: whenever you stumble across something that you should do if you had unlimited time, but cannot do since you don’t, you describe it here. 
- Typical candidates are evaluation on more study objects, investigation of potential threats to validity, … 
- The point here is to inform the reader (and your supervisor) that you were aware of these limitatons. Limit this chapter to very few pages. 
- Two is entirely fine, even for a Master’s thesis.
+ So to show the merit of the problem you worked on, you list these questions here.
+ %If you don’t care about research folklore (I did not as a student),
+ %this chapter is still useful: whenever you stumble across something that you should do if you had unlimited time, but cannot do since you don’t, you describe it here. 
+ %Typical candidates are evaluation on more study objects, investigation of potential threats to validity, … 
+ %The point here is to inform the reader (and your supervisor) that you were aware of these limitatons. Limit this chapter to very few pages. 
+ %Two is entirely fine, even for a Master’s thesis.
 \pagebreak
 
-%------------------------------RESULTS-----------------------------------
-\section{Results}
-\label{sec:6}
-
-\pagebreak
 
 %------------------------------CONCLUSIONS-----------------------------------
 \section{Conclusions}
 \label{sec:7}
-Short summary of the contribution and its implications. The goal is to drive home the result of your thesis. Do not repeat all the stuff you have written in other parts of the thesis in detail. Again, limit this chapter to very few pages. 
+Short summary of the contribution and its implications. The goal is to drive home the result of your thesis.
+Do not repeat all the stuff you have written in other parts of the thesis in detail. Again, limit this chapter to very few pages. 
 The shorter, the easier it is to keep consistent with the parts it summarizes.
 
 \pagebreak
@@ -314,956 +338,9 @@ The shorter, the easier it is to keep consistent with the parts it summarizes.
 
 \appendix
 
-\section{Appendix 1 - Protocol Headers}
-\label{Appendix 1}
-%\addcontentsline{toc}{section}{Appendix 1}
-
-\subsection*{IPv6}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{1}{|C{40pt}}{\cellcolor{darkblue} Version}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Traffic Class}&\multicolumn{5}{C{200pt}|}{\cellcolor{darkblue} Flow Label}\\
-\hline
-\multicolumn{4}{|C{160pt}}{\cellcolor{lightblue} Payload Length}&\multicolumn{2}{|C{80pt}|}{\cellcolor{darkblue} Next Header}&\multicolumn{2}{C{80pt}|}{\cellcolor{lightblue} Hop Limit}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{\multirow{-4}{*}{\hfil Source Address}}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{\multirow{-4}{*}{\hfil Destination Address}}\\
-\hline
-\end{tabular}
-\caption{IPv6 Header}
-\label{table:IPv6}
-\end{table}
-\end{savenotes}
-
-\subsection*{ICMPv6}
-
-\subsubsection*{RFC 4443}
-
-The following are the Protocol Headers described in RFC 4443.\\
-
-\vspace{15pt}
-\textbf{Destination Unreachable}
-\begin{savenotes}
-\begin{table} [!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{Unused}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\parbox{10cm}{As much of invocking packet as possible without the ICMPv6 packet exceeding the minimum IPv6 MTU}}}\\
-\hdashline
-\end{tabular}
-\caption{Destination Unreachable}
-\label{table:destUnreach}
-\end{table}
-\end{savenotes}
-
-\textbf{Packet Too Big}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{MTU}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\parbox{10cm}{As much of invocking packet as possible without the ICMPv6 packet exceeding the minimum IPv6 MTU}}}\\
-\hdashline
-\end{tabular}
-\caption{Packet Too Big}
-\label{table:packettoobig}
-\end{table}
-\end{savenotes}
-
-\textbf{Time Exceeded}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{Unused}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\parbox{10cm}{As much of invocking packet as possible without the ICMPv6 packet exceeding the minimum IPv6 MTU}}}\\
-\hdashline
-\end{tabular}
-\caption{Time Exceeded}
-\label{table:timeExceeded}
-\end{table}
-\end{savenotes}
-
-\textbf{Parameter Problem}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{Pointer}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\parbox{10cm}{As much of invocking packet as possible without the ICMPv6 packet exceeding the minimum IPv6 MTU}}}\\
-\hdashline
-\end{tabular}
-\caption{Parameter Problem}
-\label{table:paramProb}
-\end{table}
-\end{savenotes}
-
-\textbf{Echo Request}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{4}{|c|}{\cellcolor{lightblue} Identifier}&\multicolumn{4}{c|}{\cellcolor{darkblue} Sequence Number}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\hfil Data}}\\
-\hdashline
-\end{tabular}
-\caption{Echo Request}
-\label{table:echoReq}
-\end{table}
-\end{savenotes}
-
-\textbf{Echo Reply}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{4}{|c|}{\cellcolor{lightblue} Identifier}&\multicolumn{4}{c|}{\cellcolor{darkblue} Sequence Number}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{:c:}{\multirow{-2}{*}{\hfil Data}}\\
-\hdashline
-\end{tabular}
-\caption{Echo Reply}
-\label{table:echoRep}
-\end{table}
-\end{savenotes}
-
-\subsubsection*{RFC 4861}
-\textbf{Router Solicitation}\\
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{4}{|c|}{\cellcolor{lightblue} Identifier}&\multicolumn{4}{c|}{\cellcolor{darkblue} Reserved}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{:c:}{Options}\\
-\hdashline
-\end{tabular}
-\caption{Router Solicitation}
-\label{table:routerSolicit}
-\end{table}
-\end{savenotes}
-
-\textbf{Router Advertisement}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{10pt}C{10pt}C{20pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{4}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{2}{|c}{\cellcolor{lightblue} Cur Hop Limit}&\multicolumn{1}{|c|}{\cellcolor{darkblue}M}&\multicolumn{1}{c|}{\cellcolor{lightblue}O}&\multicolumn{2}{c|}{\cellcolor{darkblue} Reserved}
-&\multicolumn{4}{c|}{\cellcolor{lightblue} Router Lifetime}\\
-\hline
-\multicolumn{10}{|c|}{\cellcolor{darkblue} Reachable Time}\\
-\hline
-\multicolumn{10}{|c|}{\cellcolor{lightblue} Retrans Timer}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{10}{:c:}{Options}\\
-\hdashline
-\end{tabular}
-\caption{Router Advertisement}
-\label{table:routerAdvert}
-\end{table}
-\end{savenotes}
-
-\textbf{Neighbor Solicitation}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{8}{|c|}{\cellcolor{lightblue} Reserved}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{\multirow{-4}{*}{\hfil Target Address}}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{:c:}{Options}\\
-\hdashline
-\end{tabular}
-\caption{Neighbor Solicitation}
-\label{table:neighSolicit}
-\end{table}
-\end{savenotes}
-
-\textbf{Neighbor Advertisement}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{10pt}C{10pt}C{10pt}C{10pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{5}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{1}{|C{10pt}}{\cellcolor{lightblue}R}&\multicolumn{1}{|C{10pt}}{\cellcolor{darkblue}S}&\multicolumn{1}{|C{10pt}}{\cellcolor{lightblue}O}&\multicolumn{8}{|c|}{\cellcolor{darkblue} Reserved}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{11}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{11}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{11}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{11}{|c|}{\multirow{-4}{*}{\hfil Target Address}}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{11}{:c:}{Options}\\
-\hdashline
-\end{tabular}
-\caption{Neighbor Advertisement}
-\label{table:neighAdv}
-\end{table}
-\end{savenotes}
-
-\textbf{Redirect}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Code}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Checksum}\\
-\hline
-\multicolumn{8}{|c|}{\cellcolor{lightblue} Reserved}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{\multirow{-4}{*}{\hfil Target Address}}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{8}{|c|}{\multirow{-4}{*}{\hfil Destination Address}}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{:c:}{Options}\\
-\hdashline
-\end{tabular}
-\caption{Redirect}
-\label{table:redirect}
-\end{table}
-\end{savenotes}
+\section{Appendix 1}
 
 
-\textbf{Source/Target link-layer Address}
-\vspace{20pt}
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Length}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Link-layer Address}\\
-\hline
-\end{tabular}
-\caption{Source/Target link-layer Address}
-\label{table:optionsSrcTgt}
-\end{table}
-\end{savenotes}
-
-\textbf{Prefix Information}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{10pt}C{10pt}C{20pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue}Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Length}&\multicolumn{2}{C{80pt}|}{\cellcolor{darkblue} Prefix length}&\multicolumn{1}{C{10pt}|}{\cellcolor{lightblue}L}
-&\multicolumn{1}{C{10pt}|}{\cellcolor{darkblue}A}&\multicolumn{2}{C{60pt}|}{\cellcolor{lightblue}Reserved1}\\
-\hline
-\multicolumn{10}{|C{320pt}|}{\cellcolor{darkblue} Valid Lifetime}\\
-\hline
-\multicolumn{10}{|C{320pt}|}{\cellcolor{lightblue} Preferred Lifetime}\\
-\hline
-\multicolumn{10}{|C{320pt}|}{\cellcolor{darkblue} Reserved2}\\
-\hline
-\rowcolor{lightblue}
-\multicolumn{10}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{10}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{10}{|c|}{}\\
-\rowcolor{lightblue}
-\multicolumn{10}{|c|}{\multirow{-4}{*}{\hfil Prefix}}\\
-\hline
-\end{tabular}
-\caption{Prefix Information}
-\label{table:optionsPrefix}
-\end{table}
-\end{savenotes}
-
-\textbf{Redirect Header}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Length}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Reserved}\\
-\hline
-\multicolumn{8}{|C{320pt}|}{\cellcolor{lightblue} Reserved}\\
-\hline
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{}\\
-\rowcolor{darkblue}
-\multicolumn{8}{|c|}{\multirow{-2}{*}{\hfil IP Header + Data}}\\
-\hline
-\end{tabular}
-\caption{Redirect Header}
-\label{table:optionsRedir}
-\end{table}
-\end{savenotes}
-
-\textbf{MTU}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\begin{tabular}{|C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}C{40pt}|}
-\hline
-\multicolumn{2}{|C{80pt}}{\cellcolor{darkblue} Type}&\multicolumn{2}{|C{80pt}|}{\cellcolor{lightblue} Length}&\multicolumn{4}{C{160pt}|}{\cellcolor{darkblue} Reserved}\\
-\hline
-\multicolumn{8}{|C{320pt}|}{\cellcolor{lightblue} MTU}\\
-\hline
-\end{tabular}
-\caption{MTU}
-\label{table:optionsMTU}
-\end{table}
-\end{savenotes}
-
-
-
-\pagebreak
-\section{Appendix 2 - ICMPv6 specifications}
-\label{Appendix 2}
-%\addcontentsline{toc}{section}{Appendix 2}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Processing Rules}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&If an ICMPv6 error message of unknown type is received at its destination, it \textcolor{red}{MUST} be passed to the upper-layer process that originated the packet that caused the error, where this can be identified\\
-\hline
-&If an ICMPv6 informational message of unknown type is received, it \textcolor{red}{MUST} be silently discarded.\\
-\hline
-&Every ICMPv6 error message \textcolor{red}{MUST} include as much of the IPv6 offending (invoking) packet\\ 
-\hline
-&In cases where the internet-layer protocol is required to pass an ICMPv6 error message to the upper-layer process, the upper-layer protocol type is extracted from the original packet and used to select the appropriate 
-upper-layer process to handle the error.\\
-\hline
-&An ICMPv6 error message \textcolor{red}{MUST NOT} be originated as a result of receiving the following:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
- \item An ICMPv6 error message.
- \item An ICMPv6 redirect message.
- \item A packet destined to an IPv6 multicast address. (There are two exceptions to this rule: (1) the Packet Too Big Message to allow Path MTU discovery to work for IPv6 multicast, and (2) the Parameter Problem Message, Code 
-2 reporting an unrecognized IPv6 option that has the Option Type highest- order two bits set to 10).
- \item A packet sent as a link-layer multicast.
- \item A packet sent as a link-layer broadcast.
- \item A packet whose source address does not uniquely identify a single node.
-\end{itemize}
-\\
-\hline
-&Finally, in order to limit the bandwidth and forwarding costs incurred by originating ICMPv6 error messages, an IPv6 node \textcolor{red}{MUST} limit the rate of ICMPv6 error messages it originates.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Message Processing Rules}
-\label{table:4443ProcRules}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Destination Unreachable}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&Unused field: This field is unused for all code values. It \textcolor{red}{MUST} be initialized to zero by the originator and ignored by the receiver.\\
-\hline
-&A Destination Unreachable message \textcolor{red}{SHOULD} be generated by a router, or by the IPv6 layer in the originating node, in response to a packet that cannot be delivered to its destination address for reasons 
-other than congestion.\\
-\hline
-&One specific case in which a Destination Unreachable message is sent with a code 3 is in response to a packet received by a router from a point-to-point link, destined to an address within a subnet assigned to that 
-same link (other than one of the receiving router's own addresses). In such a case, the packet \textcolor{red}{MUST NOT} be forwarded back onto the arrival link.\\
-\hline
-&A destination node \textcolor{red}{SHOULD} originate a Destination Unreachable message with Code 4 in response to a packet for which the transport protocol (e.g., UDP) has no listener, if that transport protocol has no 
-alternative means to inform the sender.\\
-\hline
-&For security reasons, it is recommended that implementations \textcolor{red}{SHOULD} allow sending of ICMP destination unreachable messages to be disabled, preferably on a per-interface basis.\\
-\hline
-&A node receiving the ICMPv6 Destination Unreachable message \textcolor{red}{MUST} notify the upper-layer process if the relevant process can be identified\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Destination Unreachable}
-\label{table:4443DestUnreach}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Packet Too Big}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A Packet Too Big \textcolor{red}{MUST} be sent by a router in response to a packet that it cannot forward because the packet is larger than the MTU of the outgoing link.\\
-\hline
-&An incoming Packet Too Big message \textcolor{red}{MUST} be passed to the upper-layer process if the relevant process can be identified.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Packet Too Big}
-\label{table:4443PackBig}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Time Exceeded}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&If a router receives a packet with a Hop Limit of zero, or if a router decrements a packet's Hop Limit to zero, it \textcolor{red}{MUST} discard the packet and originate an ICMPv6 Time Exceeded message with Code 0 to 
-the source of the packet.\\
-\hline
-&An incoming Time Exceeded message \textcolor{red}{MUST} be passed to the upper-layer process if the relevant process can be identified.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Time Exceeded}
-\label{table:4443TimeExceed}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Parameter Problem}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&If an IPv6 node processing a packet finds a problem with a field in the IPv6 header or extension headers such that it cannot complete processing the packet, it \textcolor{red}{MUST} discard the packet and 
-\textcolor{red}{SHOULD} originate an ICMPv6 Parameter Problem message to the packet's source, indicating the type and location of the problem.\\
-\hline
-&A node receiving this ICMPv6 message \textcolor{red}{MUST} notify the upper-layer process if the relevant process can be identified.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Parameter Problem}
-\label{table:4443ParamProb}
-\end{table}
-\end{savenotes}
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Echo Request}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&Every node \textcolor{red}{MUST} implement an ICMPv6 Echo responder function that receives Echo Requests and originates corresponding Echo Replies. A node \textcolor{red}{SHOULD} also implement an application-layer 
-interface for originating Echo Requests and receiving Echo Replies, for diagnostic purposes.\\
-\hline
-&Echo Request messages \textcolor{red}{MAY} be passed to processes receiving ICMP messages.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Echo Request}
-\label{table:4443EchoReq}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Echo Reply}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&The source address of an Echo Reply sent in response to a unicast Echo Request message \textcolor{red}{MUST} be the same as the destination address of that Echo Request message.\\
-\hline
-&An Echo Reply \textcolor{red}{SHOULD} be sent in response to an Echo Request message sent to an IPv6 multicast or anycast address. In this case, the source address of the reply \textcolor{red}{MUST} be a unicast address 
-belonging to the interface on which the Echo Request message was received.\\
-\hline
-&The data received in the ICMPv6 Echo Request message \textcolor{red}{MUST} be returned entirely and unmodified in the ICMPv6 Echo Reply message.\\
-\hline
-&Echo Reply messages \textcolor{red}{MUST} be passed to the process that originated an Echo Request message.\\
-\hline
-&An Echo Reply message \textcolor{red}{MAY} be passed to processes that did not originate the Echo Request message.\\
-\hline
-&Note that there is no limitation on the amount of data that can be put in Echo Request and Echo Reply Messages.\\
-\hline
-\end{tabular}
-\caption{RFC 4443 - Echo Reply}
-\label{table:4443EchoReply}
-\end{table}
-\end{savenotes}
-
-
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Router Solicitation}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&Hosts \textcolor{red}{MUST} silently discard any received Router Solicitation Messages.\\
-\hline
-&A router \textcolor{red}{MUST} silently discard any received Router Solicitation messages that do not satisfy all of the following validity checks:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
-  \item The IP Hop Limit field has a value of 255, i.e., the packet could not possibly have been forwarded by a router.
-  \item ICMP Checksum is valid.
-  \item ICMP Code is 0.
-  \item ICMP length (derived from the IP length) is 8 or more octets.
-  \item All included options have a length that is greater than zero.
-  \item If the IP source address is the unspecified address, there is no source link-layer address option in the message.
- \end{itemize}
-\\
-\hline
-&The contents of the Reserved field, and of any unrecognized options, \textcolor{red}{MUST} be ignored.\\
-\hline
-&The contents of any defined options that are not specified to be used with Router Solicitation messages \textcolor{red}{MUST} be ignored and the packet processed as normal.  The only defined option that may appear is the 
-Source Link-Layer Address option.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Validation of Router Solicitation}
-\label{table:4861RoutSol}
-\end{table}
-\end{savenotes}
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Router Advertisement}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A router \textcolor{red}{MUST} silently discard any received Router Advertisement messages that do not satisfy all of the following validity checks:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
-  \item IP Source Address is a link-local address.  Routers must use their link-local address as the source for Router Advertisement and Redirect messages so that hosts can uniquely identify routers.
-  \item The IP Hop Limit field has a value of 255, i.e., the packet could not possibly have been forwarded by a router.
-  \item ICMP Checksum is valid.
-  \item ICMP Code is 0.
-  \item ICMP length (derived from the IP length) is 16 or more octets.
-  \item All included options have a length that is greater than zero.
- \end{itemize}
-\\
-\hline
-&The contents of the Reserved field, and of any unrecognized options, \textcolor{red}{MUST} be ignored.\\
-\hline
-&The contents of any defined options that are not specified to be used with Router Advertisement messages \textcolor{red}{MUST} be ignored and the packet processed as normal.  The only defined options that may appear are 
-the Source Link-Layer Address, Prefix Information and MTU options.\\
-\hline
-&A host \textcolor{red}{MUST NOT} send Router Advertisement messages at any time.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Validation of Router Advertisement}
-\label{table:4861RoutAdv}
-\end{table}
-\end{savenotes}
-
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Neighbor Solicitation}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A node \textcolor{red}{MUST} silently discard any received Neighbor Solicitation messages that do not satisfy all of the following validity checks:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
-  \item The IP Hop Limit field has a value of 255, i.e., the packet could not possibly have been forwarded by a router.
-  \item ICMP Checksum is valid.
-  \item ICMP Code is 0.
-  \item ICMP length (derived from the IP length) is 24 or more octets.
-  \item Target Address is not a multicast address.
-  \item All included options have a length that is greater than zero.
-  \item If the IP source address is the unspecified address, the IP destination address is a solicited-node multicast address.
-  \item If the IP source address is the unspecified address, there is no  source link-layer address option in the message.
- \end{itemize}
-\\
-\hline
-&The contents of the Reserved field, and of any unrecognized options, \textcolor{red}{MUST} be ignored.\\
-\hline
-&The contents of any defined options that are not specified to be used with Neighbor Solicitation messages \textcolor{red}{MUST} be ignored and the packet processed as normal. The only defined option that may appear is 
-the Source Link-Layer Address option.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Validation of Neighbor Solicitation}
-\label{table:4861NeighSol}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Neighbor Solicitation - Sending}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&If the source address of the packet prompting the solicitation is the same as one of the addresses assigned to the outgoing interface, that address \textcolor{red}{SHOULD} be placed in the IP Source Address of the 
-outgoing solicitation.\\
-\hline
-&If the solicitation is being sent to a solicited-node multicast address, the sender \textcolor{red}{MUST} include its link-layer address (if it has one) as a Source Link-Layer Address option.\\
-\hline
-&Otherwise, the sender \textcolor{red}{SHOULD} include its link-layer address (if it has one) as a Source Link-Layer Address option.\\
-\hline
-&On unicast solicitations, an implementation \textcolor{red}{MAY} omit the Source Link-Layer Address option.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Sending Neighbor Solicitation}
-\label{table:4861NeighSolSend}
-\end{table}
-\end{savenotes}
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Neighbor Solicitation - Reception}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A valid Neighbor Solicitation that does not meet any of the following requirements \textcolor{red}{MUST} be silently discarded:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
- \item The Target Address is a "valid" unicast or anycast address assigned to the receiving interface.
- \item The Target Address is a unicast or anycast address for which the node is offering proxy service.
- \item The Target Address is a "tentative" address on which Duplicate Address Detection is being performed.
-\end{itemize}
-\\
-\hline
-&If the Source Address is not the unspecified address and, on link layers that have addresses, the solicitation includes a Source Link-Layer Address option, then the recipient \textcolor{red}{SHOULD} create or update the 
-Neighbor Cache entry for the IP Source Address of the solicitation.\\
-\hline
-&If the Source Address is the unspecified address, the node \textcolor{red}{MUST NOT} create or update the Neighbor Cache entry.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Reception of Neighbor Solicitation}
-\label{table:4861NeighSolRec}
-\end{table}
-\end{savenotes}
-
-
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Neighbor Advertisement}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A node \textcolor{red}{MUST} silently discard any received Neighbor Advertisement messages that do not satisfy all of the following validity checks:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
-  \item The IP Hop Limit field has a value of 255, i.e., the packet could not possibly have been forwarded by a router.
-  \item ICMP Checksum is valid.
-  \item ICMP Code is 0.
-  \item ICMP length (derived from the IP length) is 24 or more octets.
-  \item Target Address is not a multicast address.
-  \item If the IP Destination Address is a multicast address the Solicited flag is zero.
-  \item All included options have a length that is greater than zero.
- \end{itemize}
-\\
-\hline
-&The contents of the Reserved field, and of any unrecognized options, \textcolor{red}{MUST} be ignored.\\
-\hline
-&The contents of any defined options that are not specified to be used with Neighbor Advertisement messages \textcolor{red}{MUST} be ignored and the packet processed as normal. The only defined option that may appear is 
-the Target Link-Layer Address option.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Validation of Neighbor Advertisement}
-\label{table:4861NeighAdv}
-\end{table}
-\end{savenotes}
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Sending Solicited Neighbor Advertisement}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&If the solicitation's IP Destination Address is not a multicast address, the Target Link-Layer Address option \textcolor{red}{MAY} be omitted.\\
-\hline
-&If the solicitation's IP Destination Address is a multicast address, the Target Link-Layer option \textcolor{red}{MUST} be included in the advertisement.\\
-\hline
-&if the node is a router, it \textcolor{red}{MUST} set the Router flag to one; otherwise, it \textcolor{red}{MUST} set the flag to zero.\\
-\hline
-&If the Target Address is either an anycast address or a unicast address for which the node is providing proxy service, or the Target Link-Layer Address option is not included, the Override flag \textcolor{red}{SHOULD} be 
-set to zero.  Otherwise, the Override flag \textcolor{red}{SHOULD} be set to one.\\
-\hline
-&If the source of the solicitation is the unspecified address, the node \textcolor{red}{MUST} set the Solicited flag to zero and multicast the advertisement to the all-nodes address. Otherwise, the node \textcolor{red}{MUST} 
-set the Solicited flag to one and unicast the advertisement to the Source Address of the solicitation.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Solicited Neighbor Advertisement}
-\label{table:4861NeighAdvSol}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Receipt of Neighbor Advertisement}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&When a valid Neighbor Advertisement is received (either solicited or unsolicited), the Neighbor Cache is searched for the target's entry. If no entry exists, the advertisement \textcolor{red}{SHOULD} be silently 
-discarded.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Receipt of Neighbor Advertisement}
-\label{table:4861NeighAdvReceipt}
-\end{table}
-\end{savenotes}
-
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Redirect}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A host \textcolor{red}{MUST} silently discard any received Redirect message that does not satisfy all of the following validity checks:
-\begin{itemize}[noitemsep,topsep=0pt,partopsep=0pt]
-  \item IP Source Address is a link-local address.  Routers must use their link-local address as the source for Router Advertisement and Redirect messages so that hosts can uniquely identify routers.
-  \item The IP Hop Limit field has a value of 255, i.e., the packet could not possibly have been forwarded by a router.
-  \item ICMP Checksum is valid.
-  \item ICMP Code is 0.
-  \item ICMP length (derived from the IP length) is 40 or more octets.
-  \item The IP source address of the Redirect is the same as the current first-hop router for the specified ICMP Destination Address.
-  \item  The ICMP Destination Address field in the redirect message does not contain a multicast address.
-  \item The ICMP Target Address is either a link-local address (when redirected to a router) or the same as the ICMP Destination Address (when redirected to the on-link destination).
-  \item All included options have a length that is greater than zero.
- \end{itemize}
-\\
-\hline
-&The contents of the Reserved field, and of any unrecognized options, \textcolor{red}{MUST} be ignored.\\
-\hline
-&The contents of any defined options that are not specified to be used with Redirect messages \textcolor{red}{MUST} be ignored and the packet processed as normal. The only defined options that may appear are the Target 
-Link-Layer Address option and the Redirected Header option.\\
-\hline
-&A host \textcolor{red}{MUST NOT} consider a redirect invalid just because the Target Address of the redirect is not covered under one of the link's prefixes.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Validation of Redirect}
-\label{table:4861Redir}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Redirect - Router and Host Specifications}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&A router \textcolor{red}{MUST NOT} update its routing tables upon receipt of a Redirect.\\
-\hline
-&A host receiving a valid redirect \textcolor{red}{SHOULD} update its Destination Cache accordingly so that subsequent traffic goes to the specified target.\\
-\hline
-&If no Destination Cache entry exists for the destination, an implementation \textcolor{red}{SHOULD} create such an entry.\\
-\hline
-&If the Target and Destination Addresses are the same, the host \textcolor{red}{MUST} treat the Target as on-link.\\
-\hline
-&If the Target Address is not the same as the Destination Address, the host \textcolor{red}{MUST} set IsRouter to TRUE for the target.\\
-\hline
-&A host \textcolor{red}{MUST NOT} send Redirect messages.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Redirect, specifications}
-\label{table:4861RedirSpec}
-\end{table}
-\end{savenotes}
-
-\begin{savenotes}
-\begin{table}[!htpb]
-\centering
-\addtolength{\tabcolsep}{1pt}
-\begin{tabular}{|C{2.0cm}|L{13.5cm}|}
-\rowcolor{lightblue}
-\hline
-\multicolumn{2}{|c|}{Options Processing}\\
-\hline
-Selected&\multicolumn{1}{c|}{Specification}\\
-\hline
-&In order to ensure that future extensions properly coexist with current implementations, all nodes \textcolor{red}{MUST} silently ignore any options they do not recognize in received ND packets and continue processing 
-the packet.\\
-\hline
-&All options specified in this document \textcolor{red}{MUST} be recognized.\\
-\hline
-&A node \textcolor{red}{MUST NOT} ignore valid options just because the ND message contains unrecognized ones.\\
-\hline
-&The option \textcolor{red}{MUST NOT} depend on the presence or absence of any other options.\\
-\hline
-&Options in Neighbor Discovery packets can appear in any order; receivers \textcolor{red}{MUST} be prepared to process them independently of their order.\\
-\hline
-&The amount of data to include in the Redirected Header option \textcolor{red}{MUST} be limited so that the entire redirect packet does not exceed the minimum MTU required to support IPv6.\\
-\hline
-&The size of an ND packet including the IP header is limited to the link MTU.  When adding options to an ND packet, a node \textcolor{red}{MUST NOT} exceed the link MTU.\\
-\hline
-\end{tabular}
-\caption{RFC 4861 - Options}
-\label{table:4861Options}
-\end{table}
-\end{savenotes}
 
 
 \end{document}
