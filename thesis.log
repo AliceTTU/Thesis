@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  23 JUN 2016 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  23 JUN 2016 20:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1547,72 +1547,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--226
 
 [8] [9]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 241.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 252.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 239.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 241.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+Underfull \hbox (badness 10000) in paragraph at lines 250--253
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--268
+Underfull \hbox (badness 10000) in paragraph at lines 250--253
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 264--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--268
-
- []
-
-[10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
+Underfull \hbox (badness 10000) in paragraph at lines 264--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
+Underfull \hbox (badness 10000) in paragraph at lines 264--273
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--290
-
- []
-
-[12]
-
-LaTeX Warning: Citation `4' on page 13 undefined on input line 291.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 302--304
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 275--277
 
  []
 
 [13] [14] [15] [16] [17] (./thesis.bbl) [18] [19]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 365.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 365.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 365.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 365.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 849FC9C888873806D2EEC27848369ABB;972.
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 31838 strings out of 495020
- 575713 string characters out of 6181324
- 684839 words of memory out of 5000000
- 34488 multiletter control sequences out of 15000+600000
+ 31839 strings out of 495020
+ 575732 string characters out of 6181324
+ 690839 words of memory out of 5000000
+ 34487 multiletter control sequences out of 15000+600000
  58490 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,11n,97p,10378b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1623,10 +1605,10 @@ onts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (19 pages, 99490 bytes).
+Output written on thesis.pdf (19 pages, 101203 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 242 PDF objects out of 1000 (max. 8388607)
+ 211 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
