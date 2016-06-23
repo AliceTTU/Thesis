@@ -236,27 +236,71 @@ Whenever you can, don’t reinvent a description for an established concept, but
 \section{Background and Related Work}
 \label{sec:3}
 
+%4 -5 pages 
 
 \subsection{Data Deduplication}
-\label{sub:background}
+\label{sub:Deduplication}
 
-The aim of data deduplication is to reduce the disk space and bandwidth needed to transfer the data. 
+%2 pages max
+
+%The aim of data deduplication is to reduce the disk space and bandwidth needed to transfer the data. 
+
+%The main idea behind deduplication is to remove or avoid the duplicated content. 
+%If the user uploads a file on the server and such file already exist, file would not be stored on the disk. Instead,  a reference  will be created on already existing file.    
+
+
+Cloud computing is an on-demand service. Customers are charged based on used storage and bandwidth.\footnote{"With Amazon S3, you pay only for the storage you actually use. There is no minimum fee and no setup cost. Amazon S3 has three pricing components: storage (per GB per month), data transfer in or out (per GB per month), and requests (per n thousand requests per month)." \url{http://aws.amazon.com/s3/pricing/}} Both service providers and customers are interested in cost efficient solutions of cloud storage. Data deduplication offers disk and bandwidth savings. Idea is simple -- avoid or remove a duplicated data. 
+This section covers basic concepts of deduplication technology. Lists various methods and processing type sand underlines the approaches used in cloud storage.\\
+
+\subsubsection{Hash Based Deduplication}
+\label{subsub:HashBased}
+
+To remove or avoid duplicated data, it must be detected first.Hash based data deduplication uses the hash values of a file (or data chunk) as a file (or data chunk) identifier. Hashes of files are calculated and then are kept on the server. When the file is uploaded first time, its hash is computed and it is compared with the existing hashes on the server.If there is a match, the file is not stored on the disk (or in case of client-side deduplication, is not transfered at all).Instead, server creates the reference, which points on the already existing file, with the same hash value.If computed hash does not match with any of the hashes, the file together with the hash value is stored on the server.\cite{DeDupOverView}
 
 
 
-Describe how deduplication works. 
+
+\subsubsection{Types of Deduplication}
+\label{subsub:TypesOfDedup}
+Data deduplication differs based on processing methods. If it takes place before the client application transfers the file to the server,it is known as client-side deduplication. If it takes place, after the file is uploaded on server, it is known as server side deduplication. In client-side deduplication scenario, the client application computes the hash of the file and sends it to the server. If the hash already exists on the server side, client application does not send the file. If no match is found, it means,that the file is unique and client application transfers it to the server. On the other hand, if client application directly sends file to the server and server computes the hash after it, it is called server-side deduplication. Both processing methods save storage, but client-side deduplication also reduces bandwidth consumption.\cite{DeDupMethods}\\\\
+Apart of divers processing methods,data deduplication differs in processing levels. There are file  and block level data deduplication. Difference between them is intuitive. In case of file level, hash of file is calculated and as a result unique files are stored on the server. In block level scenario , files are divided into blocks(fixed or variable size). Hashes of these blocks are calculated and duplicated data on block level is avoided. \cite{DeDupMethods}\\\\
+The last concept is, single and cross client data deduplication. Single client data deduplication removes duplicated data  in scope of one user. Duplicated data will be stored on the server, if it belongs to different users. On the other hand, cross client deduplication vanishes the user boundaries and unique data would be shared among the users.\cite{DeDupMethods}
 
 
-\subsection{Related Work}
-\label{sub:covert}
+\subsubsection{Summary}
 
-Collects descriptions of existing work that is related to your work. Related, in this sense, means aims to solve the same problem or uses the same approach to solve a different problem. 
+Cloud storage providers are looking for, the most efficient way to reduce the cost.In cross user client-side deduplication  case, file or ”chunks” of file are stored only ones on the disk and users are sharing the data. It reduces the bandwidth cost dramatically, because the deduplication takes palace on client side, and duplicated files are not uploaded at all.\cite{DeDupDropBox} Such cost reductions is attractive for cloud storage providers, but this technology has some security drawbacks. Next section covers potential attacks taking place during cross-user client-side data deduplication in cloud storage.
 
+
+\subsection{Confidentiality and Privacy Issues in Remote Storage}
+\label{sub:potentialAttacks}
+
+%$f$
+%1395 words 
+Although deduplication is a beneficial technology, there are security drawbacks,leading to potential attacks. Taking into consideration the behavior of the cross-user client-side data deduplication, it is easy to learn some general facts. This section focuses on attacks breaching the confidentiality of data and privacy of remote storage clients, when cross-user client-side data deduplication takes place.
+
+
+\subsubsection{Potential Attacks}
+
+
+Danny Harnik was first who has demonstrated, the potential attacks in remote storage related to data deduplication technology.\cite{Harnik} The paper covers three cases: file detection, file content detection and covert channel. The first case shows, how  trivial is  to learn whether the remote server already contains the particular file or not. Attacker uploads the file and observes the network traffic or the time required to upload the file. If the file already is stored on the server, there is no need to upload it again. Client application sends only the 
+hash of the file to the server. The observer detects, that amount of data is smaller then file's size itself.(Size of hash depends on hash function and is smaller then file size.) If file is "big enough", observing the time required to upload file on server, is sufficient to learn the fact. The law enforcement authorities, can use this behavior. Check if storage provider contains the file (e.g. file's content is against the law) and later, they can force remote storage service providers to revile the identity of the file owner.\\\\
+Data deduplication technology opens the possibility to guess the content of user's data.The approach is straightforward, attacker just tries all possible variations and waits for occurrence of data deduplication. Once it takes place, attacker learns that such file (file with this content) exist on the server. The trick is that, unlike the dictionary attacks it is not detectable. It is the legitimate way to upload new documents on the server.\cite{Harnik} This type of attack is easy to lunch against the files with small min-entropy. To have batter understanding, refer to the following example. Bob is invited at the event in the cinema. He stores his invitation ticket in the cloud. Alice wants to learn the row and the place of Bob's ticket. She put the Bob's name on the right place and  starts to brute force row and place numbers. Alice generates files with different content and uploads on cloud. Once the deduplication takes place, she will get the desired information.\\\\
+Last case describes the covert channel. Precondition for this scenario is, that attacker already have to own the victims machine. In order to exchange one bit information "0" or "1", attacker generates two random files  and uploads one of them. If the first file is uploaded the covert channel transfers "0" else it transfers "1" bit. Covert channel can transfers more information, by altering  the number of files or the meaning of file.\cite{Harnik}\\\\
+
+Later Halevi address the main weakness of deduplication.\cite{PoW} He states that, to use hash as a proxy to retrieve the file is vulnerable. Owning a small static piece of the file(e.g. hash of the file) does not necessarily mean owning the entire file.  He introduces the Proof of Ownership Protocol, which dramatically reduces the probability of the attacker to retrieve the file, without owning it.  Next section\cite{4} covers the detail description of Proof of Ownership Protocol and other solutions offered to substitute the hash as a proxy approach for data ownership in remote storage.
+
+
+
+%Collects descriptions of existing work that is related to your work. Related, in this sense, means aims to solve the same problem or uses the same approach to solve a different problem. 
 %This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
 %This last part is absolutely crucial: the reader should not have to figure out the relation himself.
 %Is your piece better from some perspective? More generalizable? More performant? Simpler? It is ok if it is not, but I want you to tell me.
 
 \subsection{Summary}
+
+The amount of savings offered by data deduplication, depends on data type and content produced by users of such services.\cite{ratio}  In case of office workers as users in remote storage, the benefit from deduplication is high. Office workers use mostly identical template to generate the data and the portion of duplication is high. Applying data deduplication technology saves bandwidth and disk space.  But same time it rises privacy and confidentiality issues. The major weakness is that, client-side deduplication is detectable and using hash as a proof of ownership is not sufficient. Anyone who possesses the hash value of file, is able to retrieve the file from the server.  If the attacker  obtains the hash of the file, he can retrieve the file from the server and gain unauthorized access to it.\\\\
+Data privacy issue in cloud computing is one of the aspects that could break the trust of the users towards the service providers. So those who what to stay on the market, should build the systems, which takes into consideration privacy and confidentiality issues.
 
 \pagebreak
 
@@ -265,16 +309,18 @@ Collects descriptions of existing work that is related to your work. Related, in
 \label{sec:4}
 
 %Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
+\begin{itemize}
+ \item Proofs of Ownership in Remote Storage Systems - 2011
+ \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012
+ \item Provable Ownership of File in De-duplication Cloud Storage - 2013
+ \item A Secure Client Side Deduplication Scheme in Cloud Storage Environments - 2014
+ \item A Tunable Proof of Ownership Scheme for Deduplication Using Bloom Filters - 2014
+ \item An efficient confidentiality-preserving Proof of Ownership for Deduplication -2014
 
-\begin{enumerate}
 
-  \item Review existing solutions of data ownership problem in de-duplicated cloud storage. 
+\end{itemize}
 
-  \item Identified most favorable cases in terms of  security and efficiency and cost. 
 
-  \item Based on those case  build a framework, which will help customers to choose secure and efficient approaches.     
-
-\end{enumerate}
 
 
 

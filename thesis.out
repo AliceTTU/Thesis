@@ -2,11 +2,15 @@
 \BOOKMARK [1][-]{section.2}{Terms and definition}{}% 2
 \BOOKMARK [1][-]{section.3}{Background and Related Work}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{Data Deduplication}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Related Work}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Summary}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Approach}{}% 7
-\BOOKMARK [1][-]{section.5}{Evaluation}{}% 8
-\BOOKMARK [1][-]{section.6}{Future Work}{}% 9
-\BOOKMARK [1][-]{section.7}{Conclusions}{}% 10
-\BOOKMARK [1][-]{section.7}{References}{}% 11
-\BOOKMARK [1][-]{appendix.1}{Appendix 1}{}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Hash Based Deduplication}{subsection.3.1}% 5
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Types of Deduplication}{subsection.3.1}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Summary}{subsection.3.1}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Confidentiality and Privacy Issues in Remote Storage}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Potential Attacks}{subsection.3.2}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Summary}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Approach}{}% 11
+\BOOKMARK [1][-]{section.5}{Evaluation}{}% 12
+\BOOKMARK [1][-]{section.6}{Future Work}{}% 13
+\BOOKMARK [1][-]{section.7}{Conclusions}{}% 14
+\BOOKMARK [1][-]{section.7}{References}{}% 15
+\BOOKMARK [1][-]{appendix.1}{Appendix 1}{}% 16

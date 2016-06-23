@@ -8,50 +8,61 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: bibi.bib.bib
+Warning--I didn't find a database entry for "IEEEexample:BSTcontrol"
+Warning--I didn't find a database entry for "4"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-** IEEEtran BST control entry "IEEEexample:BSTcontrol" detected.
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Name 1 in "Shai Halevi, Danny Harnik, Benny Pinkas, and Alexandra Shulman-Peleg" has a comma at the end for entry PoW
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in ratio
 
 Done.
-You've used 1 entry,
+You've used 6 entries,
             4087 wiz_defined-function locations,
-            823 strings with 7333 characters,
-and the built_in function-call counts, 165 in all, are:
-= -- 3
-> -- 1
-< -- 0
-+ -- 0
-- -- 0
-* -- 23
-:= -- 28
-add.period$ -- 0
-call.type$ -- 1
-change.case$ -- 1
-chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 2
-empty$ -- 12
-format.name$ -- 0
-if$ -- 20
+            866 strings with 8369 characters,
+and the built_in function-call counts, 4202 in all, are:
+= -- 328
+> -- 75
+< -- 39
++ -- 45
+- -- 10
+* -- 193
+:= -- 635
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 3
+chr.to.int$ -- 93
+cite$ -- 7
+duplicate$ -- 289
+empty$ -- 357
+format.name$ -- 14
+if$ -- 988
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 23
-num.names$ -- 0
-pop$ -- 1
+int.to.str$ -- 6
+missing$ -- 42
+newline$ -- 41
+num.names$ -- 6
+pop$ -- 105
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 4
-skip$ -- 14
+quote$ -- 2
+skip$ -- 324
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 219
+swap$ -- 237
+text.length$ -- 8
 text.prefix$ -- 0
-top$ -- 6
-type$ -- 1
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 22
+top$ -- 5
+type$ -- 6
+warning$ -- 1
+while$ -- 24
+width$ -- 7
+write$ -- 74
+(There were 4 error messages)
