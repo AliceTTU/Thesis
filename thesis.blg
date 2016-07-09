@@ -23,45 +23,45 @@ while executing---line 2403 of file IEEEtran.bst
 Warning--empty journal in ratio
 
 Done.
-You've used 6 entries,
+You've used 9 entries,
             4087 wiz_defined-function locations,
-            866 strings with 8369 characters,
-and the built_in function-call counts, 4202 in all, are:
-= -- 328
-> -- 75
-< -- 39
-+ -- 45
-- -- 10
-* -- 193
-:= -- 635
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 3
-chr.to.int$ -- 93
-cite$ -- 7
-duplicate$ -- 289
-empty$ -- 357
-format.name$ -- 14
-if$ -- 988
+            892 strings with 8719 characters,
+and the built_in function-call counts, 6242 in all, are:
+= -- 511
+> -- 101
+< -- 59
++ -- 63
+- -- 13
+* -- 281
+:= -- 964
+add.period$ -- 18
+call.type$ -- 9
+change.case$ -- 6
+chr.to.int$ -- 135
+cite$ -- 10
+duplicate$ -- 443
+empty$ -- 513
+format.name$ -- 17
+if$ -- 1468
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 42
-newline$ -- 41
-num.names$ -- 6
-pop$ -- 105
+int.to.str$ -- 9
+missing$ -- 63
+newline$ -- 50
+num.names$ -- 9
+pop$ -- 142
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 324
+skip$ -- 491
 stack$ -- 0
-substring$ -- 219
-swap$ -- 237
-text.length$ -- 8
+substring$ -- 324
+swap$ -- 363
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
+type$ -- 9
 warning$ -- 1
-while$ -- 24
-width$ -- 7
-write$ -- 74
+while$ -- 34
+width$ -- 10
+write$ -- 104
 (There were 4 error messages)

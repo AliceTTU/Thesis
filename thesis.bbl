@@ -50,4 +50,15 @@ B.~P. Shai~Halevi, Danny~Harnik and A.~Shulman-Peleg, ``Proofs of ownership in
 \bibitem{ratio}
 M.~Dutch, ``Understanding data deduplication ratios,'' pp. 5--9, 2009.
 
+\bibitem{MinEnt}
+L.~Reyzin, ``Some notions of entropy for cryptography,'' \emph{Information
+  Theoretic Security}, vol. 6673, pp. 138--142, 2011.
+
+\bibitem{Merkle}
+R.~C. Merkle, ``A certified digital signature,'' \emph{In Proceedings on
+  Advances in cryptology}, vol. CRYPTO, no.~89, pp. 218--238, 1989.
+
+\bibitem{Hash}
+P.~B. Miltersen, ``Universal hashing,'' \emph{Lecture note}, p.~12, 1998.
+
 \end{thebibliography}

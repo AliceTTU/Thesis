@@ -54,39 +54,8 @@
 }
 
 
-@ARTICLE{Merkle,
-  author        = "Ralph C. Merkle",
-  title         = "A certified digital signature",
-  publisher     = "Springer-Verlag New York",
-  journal       = "In Proceedings on Advances in cryptology",
-  volume 	= "CRYPTO",
-  number	= "89",
-  address       = "New York, NY, USA",
-  year          = "1989",
-  pages         = "218-238"
-}
-@ARTICLE{MinEnt,
-  author        = "Leonid Reyzin",
-  title         = "Some Notions of Entropy for Cryptography",
-  publisher     = "Springer Berlin Heidelberg",
-  journal       = "Information Theoretic Security",
-  volume 	= "6673",
-  year          = "2011",
-  pages         = "138-142"
-}
 
 
-@ARTICLE{Hash,
-  author        = "Peter Bro Miltersen",
-  title         = "Universal Hashing",
-  journal       = "Lecture note",
-  year          = "1998",
-  pages         = "12"
-}
-
-
-
-
-
-
-
+R. C. Merkle. A certified digital signature. In Proceedings on Ad-
+vances in cryptology, CRYPTO ’89, pages 218–238, New York, NY,
+USA, 1989. Springer-Verlag New York, Inc.
