@@ -284,7 +284,7 @@ Data privacy issue in cloud computing is one of the aspects that could break the
 \section{Approach}
 \label{sec:4}
 
-We have demonstrated importance of data deduplication technology for remote storage services. And have determine the root  cause of breaching the privacy and confidentiality. This section covers the solutions, which refuse to use the static piece of information (hash of the file) as a proxy and offers alternative ways to proof the ownership of the data. We numerate the solutions from one to seven base on published date and show how it works and what are there security and efficiency characteristics. \\\\
+We have demonstrated importance of data deduplication technology for remote storage services. And have determine the root  cause of breaching the privacy and confidentiality. This section covers the solutions, which refuse to use the static piece of information (hash of the file) as a proxy and offers alternative ways to proof the ownership of the data. We numerate the solutions from one to seven based on published date and show how it works and what are there security and efficiency characteristics. \\\\
 \subsection{Solution \# 1}
 \label{sub:Soltuion1}
 
@@ -317,15 +317,97 @@ $\color{red} > T$ \footnote{In 5Mpbs for any size of file and In 100Mbps for fil
 \hline
 
 \end{tabular}
-\caption{PoW Time Comparison}
+\caption{PoW 1Time Comparison}
 \label{table:paramProbCodes}
 \end{table}
 \end{savenotes}
 
 
 
+\subsection{Solution \# 2}
+\label{sub:Soltuion2}
+
+This subsection covers the solution proposed by Di Pietro\cite{DiPietro} in his paper "Boosting Efficiency and Security in Proof of Ownership for Deduplication". The motivation of this work is to improve the efficiency of PoW\cite{PoW} protocol and avoid the security  assumptions that is hard to verify(refereeing to the concept that the file is taken from some class of distribution and not from arbitrary distribution). The subsection includes the scheme description and efficiency analyses in comparison with PoW\cite{PoW} 
+
+\subsubsection{Setup}
+\label{subsub:setup2}
 
 
+Solution offered by Di Pietro is two party protocol and involves $C$(Client) as a prover and $S$(Server) as a verifier. He names a protocol as s-POW. Once $S$ receives the file for the first time it computes the $n$ number of challenges and stores the file on the disk. To compute the challenges $S$ keeps the hash-map data structure $\Im$. It maps files to the tuples and as a key it uses the hash of the file. Tuple contains  4 elements: $ptr$ -- the pointer on the file; $res []$ -- an array of generated challenges--called "responses" ($K$ bit string); $id_c$ -- the highest challenge computed so far ; $id_u$ -- number of challenges used so far.
+
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Di_Pietro_Hash_Map}
+\caption{$\Im$ Hash-Map Structure}
+\label{fig:Di_Pietro_Hash_Map} .
+\end{center}
+\end{figure}
+
+The $S$ uses file digest $d$ (hash of the file), $id_c$ index and server's master key as an input for the  pseudo-random generator $F$ to produce random seed $s$. $s$ is an integer and $0 < s < file\_size $. The random seed $s$ serves for calculation of random position in file represent as bit vector and is unique of each challenge. At the end  using the random  position and the file as an input, $get-bit$ macros outputs the bit value. Concatenation of such outputs represents the response, which is $K$ bits log and is stored in $res[]$ array. Server computes $n$ number of responses at a time. This approach reduces I/O operations. Computation of responses takes place only, when the client uploads the file, which did not exist on server before or when  all the pre-computed responses are depleted.($id_c$ and $id_u$ control which responses is still valid and how many valid ones are remained.)\\\\
+If client $C$ attempts to upload the file already located on server $S$, $S$ challenges the client, sends the random seed $s$ and waits for valid response. Client receives $s$ and use same $get-bit$ macro to produce a $K$ bit length response. If received response is the same as pre-computed one, the client succeeds to convince the server.\\\\
+The s-POW protocol has two other modifications, which are designed to improve efficiency and are more convenient in particular cases. In one case the hash function which is used to calculate the key of the hash-map is substitute with calculation of response($K$ bit string) based on the file and the public seed $S_{pub}$. (This response serves as the key of hash-map) . In second case the file size is used as the key of the hash-map. The second solution is worthy only for large files, as the collision will be extremely high otherwise.
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff2}
+
+To demonstrate the security of s-POW protocol, Di Pietro shows the probability of adversary to convince the verifier and it is assumed that adversary already owns some large part of file. The Probability of adversary to guess the single bit for the $K$ bit length response is: $P(succ_1) = 1-\varepsilon(1-g)$, where $\varepsilon$ is fraction of file that is unknown for attacker and $g$ is the probability to guess unknown bit correctly. To convince the server, the adversary should guess the whole $K$ bit length response, and as guessing each bit from $K$ bit vector are independent events, the probability of convincing server is: $P(succ) = (1-\varepsilon(1-g))^K$. It means that the success probability  of adversary to convince the server depends on $K$, which is possible to tune based the security requirement. E.g. if the requirement is , $P(succ)\leq2^{-k}$, where $k$ is a security parameter, then $K =\lceil \frac{k ln 2}{\varepsilon(1-g)} \rceil $\\\\
+Efficiency analyses comprises  the CPU computation, I/O  in bought client and server side and bandwidth. Di Pietro evaluates his proposed schemes(s-POW and s-POW1 \footnote{Modification of s-POW protocol, which uses $K$ bit string  instead of file hash as a key in hash-map}) and compares it with PoW.\footnote{"We have run our implementation of both schemes on a 64-bit RedHat box with an Intel Xeon 2.27GHz CPU, 18 GiB of RAM and an IBM 42D0747 7200 RPM SATA hard disk drive."}\cite{PoW} On client-side both s-POW and s-POW1 schemes are faster then PoW. The complexity up growth of s-POW and PoW schemes are equivalent of file size growth. It is reasonable because in both cases the dominant operation is hashing. While in s-POW1 computation cost becomes  constant for large files. As in the s-POW1 no hashing is used and only random disk access is needed to get required bit. For  visualization it is better to refer  the \hyperref[fig:POWvsPoW]{diagrams} provided by authors:
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[width=1.0\textwidth]{POWvsPoW}
+\caption{Comparison of running time on client-side}
+\label{fig:POWvsPoW} .
+\end{center}
+\end{figure}
+
+To demonstrate the server-side performance, it is convenient to divide it in two phases: initialization and regular execution. When the file is first uploaded on server-side, that represent initialization phase, all other communication between client and server is the regular execution phase. In initialization phase PoW and s-POW both performs file hashing. It follows with reduction and mixing phase and Merkle-tree calculation in case of  \hyperref[sub:Soltuion1]{PoW} and $n$ challenge computation in s-POW case. In s-POW when all pre-calculated challenges are used, server should pre-calculate them again but this is considered to be a part of regular execution phase. In regular execution phase the  \hyperref[sub:Soltuion1]{PoW}  performs Merkle-tree verification while the s-POW performs only look-up to get the correct tuple and the valid response from $res[]$  array. But in addition to look-up, s-POW needs to recalculate the challenges(responses). Dispite the pre-calculated challenges, which are done in order to decrees the file access, on server side PoW is faster then provided s-POW. It is also important to mention the storage efficiency, PoW need only Merkle-tree root value to store on server side, while s-POW for operation requires storing of the hash-map data structure.  Based on the performed analyses and execution, authors give the \hyperref[table:asymptoticAnalysis]{asymptotic analyses} of schemes. 
+
+
+\begin{savenotes}
+\begin{table}[!htpb]
+\centering
+\addtolength{\tabcolsep}{3pt}
+\begin{tabular}{|L{6cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
+\rowcolor{lightblue}
+\hline
+&PoW&s-POW&s-POW1\\
+\hline
+Client-side computation&$O(m)hash$ & $O(m)hash$ & $O(k)PRNG\footnote{Pseudorandom number generator}$ \\
+\hline
+Client-side I/O&$O(m)$&$O(m)$&$O(k)$\\
+\hline
+Server-side computation (initialization phase)&$O(m) hash$&$O(m) hash$&$O(nk)PRNG$\\
+\hline
+Server-side computation (regular execution phase)&$O(1)$&$O(nk) PRNG$& $O(nk)PRNG$\\
+\hline
+Server-side I/O (initialization phase)&$O(m)$&$O(m)$&$O(nk)$\\
+\hline
+Server-side I/O (regular execution phase)&$0$&$O(nk)$&$O(nk)$\\
+\hline
+Server-side storage&$O(1)$&$O(nk)$&$O(nk)$\\
+\hline
+Bandwidth&$O(k\ log\ k)$&$O(k)$&$O(k)$\\
+\hline
+
+\end{tabular}
+\caption{Asymptotic analyses of schemes. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter.}
+\label{table:asymptoticAnalysis}
+\end{table}
+\end{savenotes}
+
+
+
+\subsection{Solution \# 3}
+\label{sub:Soltuion3}
+
+
+\subsection{Setup}
+\label{subsub:setup3}
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff3}
+
+ 
 %Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
 \begin{itemize}
  \item Proofs of Ownership in Remote Storage Systems - 2011 + 

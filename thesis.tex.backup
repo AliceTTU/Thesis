@@ -267,7 +267,7 @@ Danny Harnik was first who has demonstrated, the potential attacks in remote sto
 hash of the file to the server. The observer detects, that amount of data is smaller then file's size itself(Size of the hash depends on hash function and is smaller then file size). If file is "big enough", observing the time required to upload file on server, is sufficient to learn, whether the server already contains the file or not. The law enforcement authorities, can use this behavior. Check if storage provider contains the file (e.g. file's content is against the law) and later, they can force remote storage service providers to revile the identity of the file owner.\\\\
 Data deduplication technology opens the possibility to guess the content of user's data.The approach is straightforward, attacker just tries all possible variations and waits for occurrence of data deduplication. Once it takes place, attacker learns that such file (file with this content) exist on the server. The trick is that, unlike the dictionary attacks it is not detectable. It is the legitimate way to upload new documents on the server.\cite{Harnik} This type of attack is easy to lunch against the files with small min-entropy. To have batter understanding, refer to the following example. Bob is invited at the event in the cinema. He stores his invitation ticket in the cloud. Alice wants to learn the row and the place of Bob's ticket. She put the Bob's name on the right place and  starts to brute force row and place numbers. Alice generates files with different content and uploads on cloud. Once the deduplication takes place, she will get the desired information.\\\\
 Last case describes the covert channel. Precondition for this scenario is, that attacker already have to own the victims machine. In order to exchange one bit information "0" or "1", attacker generates two random files  and uploads one of them. If the first file is uploaded the covert channel transfers "0" else it transfers "1" bit. Covert channel can transfers more information, by altering  the number of files or the meaning of file.\cite{Harnik}\\\\
-All above stated attacks demonstrates the side channel effects of data deduplication. Attackers exploit the vulnerability, that data deduplication is detectable. But later Halevi states that main issue is not the detectability, but using the hash value as a proxy in remote storage.\cite{PoW} He claims that, to use a hash as a proxy to retrieve the file is vulnerable. Owning a small static piece of the file(e.g. hash of the file) does not necessarily mean owning the entire file. He referees to the Dropship\footnote{\url{https://github.com/driverdan/dropship} - "Instantly transfer files between Dropbox accounts using only their hashes"} open source project, as a brief example of misusing the storage provider. Dropship turn the remote storage  provider into CDN (Content Distribution Network) service. For that time Dropbox\footnote{\url{https://www.dropbox.com/}} was operating based on the cross-user client-side deduplication. The users of Dropship, where able to download the file in their folder, just sending the file’s hash for check to the Server. This open source project was considered as the violation of Terms of Service of the company and is not operating anymore. Halevi introduces the Proof of Ownership Protocol, which dramatically reduces the probability of the attacker to retrieve the file, without owning it. \hyperref[sec:4]{Next section} covers the detail description of Proof of Ownership Protocol and other solutions offered to substitute the hash as a proxy approach for data ownership in remote storage..\cite{PoW}
+All above stated attacks demonstrates the side channel effects of data deduplication. Attackers exploit the vulnerability, that data deduplication is detectable. But later Halevi states that main issue is not the detectability, but using the hash value as a proxy in remote storage.\cite{PoW} He claims that, to use a hash as a proxy to retrieve the file is vulnerable. Owning a small static piece of the file(e.g. hash of the file) does not necessarily mean owning the entire file. He referees to the Dropship\footnote{\url{https://github.com/driverdan/dropship} - "Instantly transfer files between Dropbox accounts using only their hashes"} open source project, as a brief example of misusing the storage provider. Dropship turn the remote storage  provider into CDN (Content Distribution Network) service. For that time Dropbox\footnote{\url{https://www.dropbox.com/}} was operating based on the cross-user client-side deduplication. The users of Dropship, where able to download the file in their folder, just sending the file’s hash for check to the Server. This open source project was considered as the violation of Terms of Service of the company and is not operating anymore. Halevi introduces the Proof of Ownership Protocol, which dramatically reduces the probability of the attacker to retrieve the file, without owning it. \hyperref[sec:4]{Next section} covers the detail description of Proof of Ownership Protocol and other solutions offered to substitute the hash as a proxy approach for data ownership in remote storage.\cite{PoW}
 %Collects descriptions of existing work that is related to your work. Related, in this sense, means aims to solve the same problem or uses the same approach to solve a different problem. 
 %This chapter typically reads like a structured list. Each list item summarizes a piece of work (typically a research paper) briefly and explains the relation to your work. 
 %This last part is absolutely crucial: the reader should not have to figure out the relation himself.
@@ -284,7 +284,7 @@ Data privacy issue in cloud computing is one of the aspects that could break the
 \section{Approach}
 \label{sec:4}
 
-We have demonstrated importance of data deduplication technology for remote storage services. And have determine the root  cause of breaching the privacy and confidentiality. This section covers the solutions, which refuse to use the static piece of information (hash of the file) as a proxy and offers alternative ways to proof the ownership of the data. We numerate the solutions from one to seven base on published date and show how it works and what are there security and efficiency characteristics. \\\\
+We have demonstrated importance of data deduplication technology for remote storage services. And have determine the root  cause of breaching the privacy and confidentiality. This section covers the solutions, which refuse to use the static piece of information (hash of the file) as a proxy and offers alternative ways to proof the ownership of the data. We numerate the solutions from one to seven based on published date and show how it works and what are there security and efficiency characteristics. \\\\
 \subsection{Solution \# 1}
 \label{sub:Soltuion1}
 
@@ -311,23 +311,89 @@ Time efficiency is one of the important features, that characterizes the protoco
 \hline
 &Dedup Time  $= T_d$ &File Transfer Time $=T$ \\
 \hline
-PoW & $\color{red} 3.28T_d+0.7ms$\footnote{For files less then 64Mb: $T_d+0.28T_d+2T_d+0.7ms$}  and $\color{red} 1.28T_d+1.165s$\footnote{For files more then 64Mb: $T_d+0.28T_d+2T_d+0.7ms$ } &  1) File size >=1Gb: $\color{red} 0.1T$  and $\color{red} 0.4T                      $           2) File size < 1GB: always $< T$ and if file size $>65K then < T$    \\
+PoW & $\color{red} 3.28T_d+0.7ms$\footnote{For files less then 64Mb: $T_d+0.28T_d+2T_d+0.7ms$}  and $\color{red} 1.28T_d+1.165s$\footnote{For files more then 64Mb: $T_d+0.28T_d+2T_d+0.7ms$ } 
+& $\color{red} 0.1T$\footnote{In 5Mbps network and file size more then 1Gb}; $\color{red} 0.4T$ \footnote{In 100Mbps network and file size more then 1Gb}; 
+$\color{red} > T$ \footnote{In 5Mpbs for any size of file and In 100Mbps for files larger then 64K}; \\
 \hline
 
 \end{tabular}
-\caption{Parameter Problem Codes}
+\caption{PoW 1Time Comparison}
 \label{table:paramProbCodes}
 \end{table}
 \end{savenotes}
 
 
 
+\subsection{Solution \# 2}
+\label{sub:Soltuion2}
+
+This subsection covers the solution proposed by Di Pietro\cite{DiPietro} in his paper "Boosting Efficiency and Security in Proof of Ownership for Deduplication". The motivation of this work is to improve the efficiency of PoW\cite{PoW} protocol and avoid the security  assumptions that is hard to verify(refereeing to the concept that the file is taken from some class of distribution and not from arbitrary distribution). The subsection includes the description how the scheme works and  efficiency analyses in comparison with PoW\cite{PoW} 
+
+\subsubsection{Setup}
+\label{subsub:setup2}
 
 
+Solution offered by Di Pietro is two party protocol and involves $C$(Client) as a Prover  and $S$(Server) as a Verifier.He names a protocol as s-POW. Once $S$ receives the file for the first time it computes the $n$ number of challenges and stores the file on the disk. To compute the challenges $S$ keeps the hash-map data structure $\Im$. It maps strings to the tuples and as a key it uses the hash of the file. Tuple contains  4 elements: $ptr$ -- the pointer on the file; $res []$ -- an array of generated responses ($K$ bit string); $id_c$ -- the highest challenge computed so far ; $id_u$ -- number of challenges used so far.
+
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Di_Pietro_Hash_Map}
+\caption{$\Im$ Hash-Map Structure}
+\label{fig:Di_Pietro_Hash_Map} .
+\end{center}
+\end{figure}
+
+The $S$ uses file digest $d$ (hash of the file), $id_c$ index and server's master key as an input for the  pseudo-random generator $F$ to produce random seed $s$. $s$ is an integer and $0 < s < file\_size $. The random seed $s$ serves for calculation of random position and is unique of each challenge. At the end based on the random  position and the file, $get-bit$ macros outputs the bit value. Concatenation of such outputs represents the responses, which is $K$ bits log and is stored in $res[]$ array. Server computes $n$ number of responses at a time. This approach reduces I/O operations. Responses computation takes place only, when the client uploads the file , which did not exist on server before or when  all the pre-computed responses are depleted.($id_c$ and $id_u$ control which responses is still valid and who many valid ones are remained.)\\\\
+If client $C$ attempts to upload the file already located on server $S$, $S$ challenges the client, sends the random seed $s$ and waits for valid response. Client receives $s$ and use same $get-bit$ macro to produce a $K$ bit length response. If received response is the same as pre-computed one, then client succeeds to convince the server.\\\\
+The s-POW protocol has two other modifications, which are designed to improve efficiency and are more convenient in particular cases. In one case the hash function which is used to calculate the key of the hash-map is substitute with calculation of response($K$ bit string) based on the file and the public seed $S_{pub}$. (This response servers as the key of hash-map) . In second case the file size is used as the key of the hash-map. The second solution is worthy only for large files, as the collision will be extremely high.
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff2}
+
+To demonstrate the security of s-POW protocol, Di Pietro shows the probability of adversary to convince the verifier and it is assumed that adversary already owns some large part of file. The Probability of adversary to guess the single bit for the $K$ bit length response is:$P(succ_1) = 1-\varepsilon(1-g)$, where $\varepsilon$ is fraction of file that is unknown for attacker and $g$ is probability to guess unknown bit correctly. To convince the server adversary should guess the whole $k$ bit length response, and as guessing each bit from K bit vector are independent events, the probability of convincing server is: $P(succ) = (1-\varepsilon(1-g))^K$. It means that the success probability  of adversary to convince the server depends on $K$, which is possible to tune based the security requirement. E.g. if the requirement is , $P(succ)\leq2^{-k}$, where $k$ is a security parameter, then $K =\lceil \frac{k ln 2}{\varepsilon(1-g)} \rceil $\\\\
+Efficiency analyses is represented in the CPU computation, I/O and bandwidth terms in bought client and server side. Di Pietro evaluates his proposed schemes(s-POW and s-POW1 \footnote{Modification of s-POW protocol, which uses $K$ bit string  instead of file hash as a key in hash-map}) and compares it with PoW.\footnote{"We have run our implementation of both schemes on a 64-bit RedHat box with an Intel Xeon 2.27GHz CPU, 18 GiB of RAM and an IBM 42D0747 7200 RPM SATA hard disk drive."}\cite{PoW} On client-side both s-POW and s-POW1 schemes are faster then PoW. The complexity up growth of s-POW and PoW scheme are equivalent of file size growth. It is resalable because in both cases the dominant operation is hashing. While in s-POW1 computation cost became  constant for large files. As in s-POW1 no hashing is used and only random disk access is needed to get required bit. For  visualization it is better to refer the diagrams provided by authors:
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[width=1.0\textwidth]{POWvsPoW}
+\caption{Comparison of running time on client-side}
+\label{fig:POWvsPoW} .
+\end{center}
+\end{figure}
+
+To demonstrate the server-side performance, it is convenient to divide it in two phases: initialization and regular execution. When the file is first uploaded on server-side, that represent initialization phase, all other communication between client and server is the regular execution phase. In initialization phase PoW and s-POW both performs file hashing. It follows with reduction and mixing phase and Merkle-tree calculation in case of  \hyperref[sub:Soltuion1]{PoW} and $n$ challenge computation in s-POW case.In s-POW when all pre-calculated challenges are used, server should pre-calculate them again but this is considered to be a part of regular execution phase. In regular execution phase in PoW performs Merkle-tree verification while in s-POW it performs only look-up to get the correct tuple and the valid response from $res[]$  array. But in addition to look-up, s-POW needs to recalculate the challenges(responses). Dispite the pre-calculated challenges, which are done in order to decrees the file access, on server side PoW is faster then provided s-POW. It is also importatn to mention the storage efficiency, PoW need only Merkle-tree root value to store on server side, while s-POW for operation need storing the hash-map data structure.  Base on the performed analyses and execution, authors gives the asymptotic analyses of schemes:
+
+
+\begin{savenotes}
+\begin{table}[!htpb]
+\centering
+\addtolength{\tabcolsep}{3pt}
+\begin{tabular}{|L{4cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
+\rowcolor{lightblue}
+\hline
+&PoW&s-POW&s-POW1\\
+\hline
+Client-side computation&$O(m)hash$ & $O(m)hash$ & $O(k)PRNF\footnote{Pseudorandom number generator}$ 
+Client-side I/O&$O(m)$&$O(m)$&$O(k)$
+Server-side computation (initialization phase)&&&
+Server-side computation (regular execution phase)&&&
+Server-side I/O (initialization phase)&&&
+Server-side I/O (regular execution phase)&&&
+Server-side storage&&&
+Bandwidth&&&
+
+\end{tabular}
+\caption{PoW 1Time Comparison}
+\label{table:paramProbCodes}
+\end{table}
+\end{savenotes}
+
+
+
+ 
 %Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
 \begin{itemize}
- \item Proofs of Ownership in Remote Storage Systems - 2011
- \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012
+ \item Proofs of Ownership in Remote Storage Systems - 2011 + 
+ \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012 - 
  \item Provable Ownership of File in De-duplication Cloud Storage - 2013
  \item Leakage-Resilient Client-side Deduplication of Encrypted Data in Cloud Storage - 2013
  \item A Secure Client Side Deduplication Scheme in Cloud Storage Environments - 2014
