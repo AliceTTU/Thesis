@@ -4,8 +4,7 @@
   publisher     = "IBM Redbooks",
   address       = "",
   year          = "2008",
-  pages         = "20-27"
- 
+  pages         = "20-27" 
 }
 
 @inbook{DeDupMethods,
@@ -15,8 +14,7 @@
   address       = "USA",
   year          = "2014",
   pages         = "77-78",
- 
-}
+ }
 
 @inbook{DeDupDropBox,
   author        = "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe",
@@ -53,9 +51,121 @@
   pages         = "5-9"
 }
 
+@ARTICLE{Merkle,
+  author        = "Ralph C. Merkle",
+  title         = "A certified digital signature",
+  publisher     = "Springer-Verlag New York",
+  journal       = "In Proceedings on Advances in cryptology",
+  volume 	= "CRYPTO",
+  number	= "89",
+  address       = "New York, NY, USA",
+  year          = "1989",
+  pages         = "218-238"
+}
+@ARTICLE{MinEnt,
+  author        = "Leonid Reyzin",
+  title         = "Some Notions of Entropy for Cryptography",
+  publisher     = "Springer Berlin Heidelberg",
+  journal       = "Information Theoretic Security",
+  volume 	= "6673",
+  year          = "2011",
+  pages         = "138-142"
+}
+@ARTICLE{Hash,
+  author        = "Peter Bro Miltersen",
+  title         = "Universal Hashing",
+  journal       = "Lecture note",
+  year          = "1998",
+  pages         = "12"
+}
+@ARTICLE{DiPietro,
+  author        = "Roberto Di Pietro, Alessandro Sorniotti",
+  title         = "Boosting Efficiency and Security in Proof of Ownership for Deduplication",
+  publisher     = "ASIACCS '12 ",
+  journal       = "the 7th ACM Symposium on Information, Computer and Communications Security ",
+  address       = "ACM New York, NY, USA",
+  year          = "2012",
+  pages         = "81-82"
+}
+@ARTICLE{POF,
+  author        = "Chao Yang , Jian Ren, Jianfeng Ma",
+  title         = "Provable Ownership of File in De-duplication Cloud Storage",
+  publisher     = "IEEE",
+  journal       = "2013 IEEE Global Communications Conference (GLOBECOM)",
+  address       = "Atlanta, GA , USA",
+  year          = "2013",
+  pages         = "695-700"
+}
+
+@misc{crypto,
+  author	= "W. Dai",
+  title		= "Crypto++ library, 5.6.1",
+  url		= "http://www.cryptopp.com/",
+  note		= "Last accessed -  Jan 2011"
+}
+
+
+@ARTICLE{Leakage-Resilient,
+  author        = "Jia X, Ee-Chien Changn, Jianying Zhou",
+  title         = "Weak leakage-resilient client-side deduplication of encrypted data in cloud storage",
+  publisher     = "ASIA CCS '13",
+  journal       = "Proceedings of the 8th ACM SIGSAC symposium on Information, computer and communications security",
+  address       = "New York, NY, USA",
+  year          = "2013",
+  pages         = "195-206"
+}
+
+
+@ARTICLE{PoisonAttac,
+  author        = "Mark Storer, Kevin Greenan, Darrell Long, Ethan Miller",
+  title         = "Secure Data Deduplication",
+  publisher     = "StorageSS '08",
+  journal       = "ACM international workshop on Storage security and survivabilit",
+  address       = "New York, NY, USA",
+  year          = "2008",
+  pages         = "1-10"
+}
 
 
 
-R. C. Merkle. A certified digital signature. In Proceedings on Ad-
-vances in cryptology, CRYPTO ’89, pages 218–238, New York, NY,
-USA, 1989. Springer-Verlag New York, Inc.
+@ARTICLE{AES,
+  author	= "NIST",
+  title		= "Announcing the ADVANCED ENCRYPTION STANDARD (AES)",
+  publisher 	= "Federal Information Processing Standards Publication 197",
+  year          = "2001"
+}
+
+@ARTICLE{Kaaniche,
+  author        = "Nesrine Kaaniche, Maryline Laurent",
+  title         = "A Secure Client Side Deduplication Scheme in Cloud Storage Environments",
+  publisher     = "IEEE",
+  journal       = "2014 6th International Conference on New Technologies, Mobility and Security (NTMS)",
+  address       = "Dubai",
+  year          = "2014",
+  pages         = "1-7"
+}
+
+
+@ARTICLE{CovergentEnc,
+  author        = "Can Wang, Zhi-guang Qin, Jing Peng. Juan Wang ",
+  title         = "A novel encryption scheme for data deduplication system.",
+  publisher     = "IEEE",
+  journal       = "Communications, Circuits and Systems (ICCCAS), 2010 International Conference on ",
+  address       = "Chengdu",
+  year          = "2010",
+  pages         = "265-269"
+}
+.
+
+@ARTICLE{MerkleLemma,
+  author        = "Ralph C. Merkle",
+  title         = "A digital signature based on a conventional encryption function.",
+  publisher     = "Springer Berlin Heidelberg",
+  journal       = "Advances in Cryptology — CRYPTO ’87",
+  volume 	= "293", 
+  address       = "New York, NY, USA",
+  year          = "1988",
+  pages         = "369-378"
+}
+.
+

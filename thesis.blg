@@ -21,47 +21,52 @@ while executing---line 2403 of file IEEEtran.bst
 Name 1 in "Shai Halevi, Danny Harnik, Benny Pinkas, and Alexandra Shulman-Peleg" has a comma at the end for entry PoW
 while executing---line 2403 of file IEEEtran.bst
 Warning--empty journal in ratio
+Too many commas in name 1 of "Mark Storer, Kevin Greenan, Darrell Long, Ethan Miller" for entry PoisonAttac
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in AES
+Name 1 in "Darrel Hankerson, Alfred Menezes, and Scott Vanstone" has a comma at the end for entry ECC
+while executing---line 2403 of file IEEEtran.bst
 
 Done.
-You've used 10 entries,
+You've used 19 entries,
             4087 wiz_defined-function locations,
-            900 strings with 8957 characters,
-and the built_in function-call counts, 6887 in all, are:
-= -- 566
-> -- 110
-< -- 65
-+ -- 69
-- -- 14
-* -- 307
-:= -- 1069
-add.period$ -- 20
-call.type$ -- 10
-change.case$ -- 7
-chr.to.int$ -- 150
-cite$ -- 11
-duplicate$ -- 491
-empty$ -- 565
-format.name$ -- 18
-if$ -- 1620
+            960 strings with 10459 characters,
+and the built_in function-call counts, 12072 in all, are:
+= -- 996
+> -- 186
+< -- 107
++ -- 118
+- -- 24
+* -- 513
+:= -- 1904
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 16
+chr.to.int$ -- 255
+cite$ -- 21
+duplicate$ -- 884
+empty$ -- 1006
+format.name$ -- 29
+if$ -- 2835
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 69
-newline$ -- 53
-num.names$ -- 10
-pop$ -- 155
+int.to.str$ -- 19
+missing$ -- 125
+newline$ -- 82
+num.names$ -- 19
+pop$ -- 291
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 541
+skip$ -- 954
 stack$ -- 0
-substring$ -- 360
-swap$ -- 400
-text.length$ -- 15
+substring$ -- 614
+swap$ -- 688
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 10
-warning$ -- 1
-while$ -- 38
-width$ -- 12
-write$ -- 113
-(There were 4 error messages)
+type$ -- 19
+warning$ -- 2
+while$ -- 65
+width$ -- 21
+write$ -- 192
+(There were 6 error messages)

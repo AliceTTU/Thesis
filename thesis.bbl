@@ -66,4 +66,49 @@ A.~S. Roberto Di~Pietro, ``Boosting efficiency and security in proof of
   ownership for deduplication,'' \emph{the 7th ACM Symposium on Information,
   Computer and Communications Security}, pp. 81--82, 2012.
 
+\bibitem{POF}
+J.~M. Chao~Yang, Jian~Ren, ``Provable ownership of file in de-duplication cloud
+  storage,'' \emph{2013 IEEE Global Communications Conference (GLOBECOM)}, pp.
+  695--700, 2013.
+
+\bibitem{crypto}
+\BIBentryALTinterwordspacing
+W.~Dai, ``Crypto++ library, 5.6.1,'' last accessed - Jan 2011. [Online].
+  Available: \url{http://www.cryptopp.com/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Leakage-Resilient}
+J.~Z. Jia~X, Ee-Chien~Changn, ``Weak leakage-resilient client-side
+  deduplication of encrypted data in cloud storage,'' \emph{Proceedings of the
+  8th ACM SIGSAC symposium on Information, computer and communications
+  security}, pp. 195--206, 2013.
+
+\bibitem{PoisonAttac}
+D.~L. E.~M. Mark~Storer, Kevin~Greenan, ``Secure data deduplication,''
+  \emph{ACM international workshop on Storage security and survivabilit}, pp.
+  1--10, 2008.
+
+\bibitem{AES}
+NIST, ``Announcing the advanced encryption standard (aes),'' 2001.
+
+\bibitem{Kaaniche}
+M.~L. Nesrine~Kaaniche, ``A secure client side deduplication scheme in cloud
+  storage environments,'' \emph{2014 6th International Conference on New
+  Technologies, Mobility and Security (NTMS)}, pp. 1--7, 2014.
+
+\bibitem{CovergentEnc}
+J.~P. J.~W. Can~Wang, Zhi-guang~Qin, ``A novel encryption scheme for data
+  deduplication system.'' \emph{Communications, Circuits and Systems (ICCCAS),
+  2010 International Conference on}, pp. 265--269, 2010.
+
+\bibitem{MerkleLemma}
+R.~C. Merkle, ``A digital signature based on a conventional encryption
+  function.'' \emph{Advances in Cryptology — CRYPTO ’87}, vol. 293, pp.
+  369--378, 1988.
+
+\bibitem{ECC}
+A.~M. Darrel~Hankerson and S.~Vanstone, \emph{Guide to Elliptic Curve
+  Cryptography.}\hskip 1em plus 0.5em minus 0.4em\relax Springer-Verlag New
+  York, 2003.
+
 \end{thebibliography}

@@ -327,13 +327,13 @@ $\color{red} > T$ \footnote{In 5Mpbs for any size of file and In 100Mbps for fil
 \subsection{Solution \# 2}
 \label{sub:Soltuion2}
 
-This subsection covers the solution proposed by Di Pietro\cite{DiPietro} in his paper "Boosting Efficiency and Security in Proof of Ownership for Deduplication". The motivation of this work is to improve the efficiency of PoW\cite{PoW} protocol and avoid the security  assumptions that is hard to verify(refereeing to the concept that the file is taken from some class of distribution and not from arbitrary distribution). The subsection includes the description how the scheme works and  efficiency analyses in comparison with PoW\cite{PoW} 
+This subsection covers the solution proposed by Di Pietro\cite{DiPietro} in his paper "Boosting Efficiency and Security in Proof of Ownership for Deduplication". The motivation of this work is to improve the efficiency of PoW\cite{PoW} protocol and avoid the security  assumptions that is hard to verify(refereeing to the concept that the file is taken from some class of distribution and not from arbitrary distribution). The subsection includes the scheme description and efficiency analyses in comparison with PoW\cite{PoW} 
 
 \subsubsection{Setup}
 \label{subsub:setup2}
 
 
-Solution offered by Di Pietro is two party protocol and involves $C$(Client) as a Prover  and $S$(Server) as a Verifier.He names a protocol as s-POW. Once $S$ receives the file for the first time it computes the $n$ number of challenges and stores the file on the disk. To compute the challenges $S$ keeps the hash-map data structure $\Im$. It maps strings to the tuples and as a key it uses the hash of the file. Tuple contains  4 elements: $ptr$ -- the pointer on the file; $res []$ -- an array of generated responses ($K$ bit string); $id_c$ -- the highest challenge computed so far ; $id_u$ -- number of challenges used so far.
+Solution offered by Di Pietro is two party protocol and involves $C$(Client) as a prover and $S$(Server) as a verifier. He names a protocol as s-POW. Once $S$ receives the file for the first time it computes the $n$ number of challenges and stores the file on the disk. To compute the challenges $S$ keeps the hash-map data structure $\Im$. It maps files to the tuples and as a key it uses the hash of the file. Tuple contains  4 elements: $ptr$ -- the pointer on the file; $res []$ -- an array of generated challenges--called "responses" ($K$ bit string); $id_c$ -- the highest challenge computed so far ; $id_u$ -- number of challenges used so far.
 
 \begin{figure}[ht] 
 \begin{center}
@@ -343,15 +343,15 @@ Solution offered by Di Pietro is two party protocol and involves $C$(Client) as 
 \end{center}
 \end{figure}
 
-The $S$ uses file digest $d$ (hash of the file), $id_c$ index and server's master key as an input for the  pseudo-random generator $F$ to produce random seed $s$. $s$ is an integer and $0 < s < file\_size $. The random seed $s$ serves for calculation of random position and is unique of each challenge. At the end based on the random  position and the file, $get-bit$ macros outputs the bit value. Concatenation of such outputs represents the responses, which is $K$ bits log and is stored in $res[]$ array. Server computes $n$ number of responses at a time. This approach reduces I/O operations. Responses computation takes place only, when the client uploads the file , which did not exist on server before or when  all the pre-computed responses are depleted.($id_c$ and $id_u$ control which responses is still valid and who many valid ones are remained.)\\\\
-If client $C$ attempts to upload the file already located on server $S$, $S$ challenges the client, sends the random seed $s$ and waits for valid response. Client receives $s$ and use same $get-bit$ macro to produce a $K$ bit length response. If received response is the same as pre-computed one, then client succeeds to convince the server.\\\\
-The s-POW protocol has two other modifications, which are designed to improve efficiency and are more convenient in particular cases. In one case the hash function which is used to calculate the key of the hash-map is substitute with calculation of response($K$ bit string) based on the file and the public seed $S_{pub}$. (This response servers as the key of hash-map) . In second case the file size is used as the key of the hash-map. The second solution is worthy only for large files, as the collision will be extremely high.
+The $S$ uses file digest $d$ (hash of the file), $id_c$ index and server's master key as an input for the  pseudo-random generator $F$ to produce random seed $s$. $s$ is an integer and $0 < s < file\_size $. The random seed $s$ serves for calculation of random position in file represent as bit vector and is unique of each challenge. At the end  using the random  position and the file as an input, $get-bit$ macros outputs the bit value. Concatenation of such outputs represents the response, which is $K$ bits log and is stored in $res[]$ array. Server computes $n$ number of responses at a time. This approach reduces I/O operations. Computation of responses takes place only, when the client uploads the file, which did not exist on server before or when  all the pre-computed responses are depleted.($id_c$ and $id_u$ control which responses is still valid and how many valid ones are remained.)\\\\
+If client $C$ attempts to upload the file already located on server $S$, $S$ challenges the client, sends the random seed $s$ and waits for valid response. Client receives $s$ and use same $get-bit$ macro to produce a $K$ bit length response. If received response is the same as pre-computed one, the client succeeds to convince the server.\\\\
+The s-POW protocol has two other modifications, which are designed to improve efficiency and are more convenient in particular cases. In one case the hash function which is used to calculate the key of the hash-map is substitute with calculation of response($K$ bit string) based on the file and the public seed $S_{pub}$. (This response serves as the key of hash-map) . In second case the file size is used as the key of the hash-map. The second solution is worthy only for large files, as the collision will be extremely high otherwise.
 
 \subsubsection{Security And Efficiency}
 \label{subsub:secAndeff2}
 
-To demonstrate the security of s-POW protocol, Di Pietro shows the probability of adversary to convince the verifier and it is assumed that adversary already owns some large part of file. The Probability of adversary to guess the single bit for the $K$ bit length response is:$P(succ_1) = 1-\varepsilon(1-g)$, where $\varepsilon$ is fraction of file that is unknown for attacker and $g$ is probability to guess unknown bit correctly. To convince the server adversary should guess the whole $k$ bit length response, and as guessing each bit from K bit vector are independent events, the probability of convincing server is: $P(succ) = (1-\varepsilon(1-g))^K$. It means that the success probability  of adversary to convince the server depends on $K$, which is possible to tune based the security requirement. E.g. if the requirement is , $P(succ)\leq2^{-k}$, where $k$ is a security parameter, then $K =\lceil \frac{k ln 2}{\varepsilon(1-g)} \rceil $\\\\
-Efficiency analyses is represented in the CPU computation, I/O and bandwidth terms in bought client and server side. Di Pietro evaluates his proposed schemes(s-POW and s-POW1 \footnote{Modification of s-POW protocol, which uses $K$ bit string  instead of file hash as a key in hash-map}) and compares it with PoW.\footnote{"We have run our implementation of both schemes on a 64-bit RedHat box with an Intel Xeon 2.27GHz CPU, 18 GiB of RAM and an IBM 42D0747 7200 RPM SATA hard disk drive."}\cite{PoW} On client-side both s-POW and s-POW1 schemes are faster then PoW. The complexity up growth of s-POW and PoW scheme are equivalent of file size growth. It is resalable because in both cases the dominant operation is hashing. While in s-POW1 computation cost became  constant for large files. As in s-POW1 no hashing is used and only random disk access is needed to get required bit. For  visualization it is better to refer the diagrams provided by authors:
+To demonstrate the security of s-POW protocol, Di Pietro shows the probability of adversary to convince the verifier and it is assumed that adversary already owns some large part of file. The Probability of adversary to guess the single bit for the $K$ bit length response is: $P(succ_1) = 1-\varepsilon(1-g)$, where $\varepsilon$ is fraction of file that is unknown for attacker and $g$ is the probability to guess unknown bit correctly. To convince the server, the adversary should guess the whole $K$ bit length response, and as guessing each bit from $K$ bit vector are independent events, the probability of convincing server is: $P(succ) = (1-\varepsilon(1-g))^K$. It means that the success probability  of adversary to convince the server depends on $K$, which is possible to tune based the security requirement. E.g. if the requirement is , $P(succ)\leq2^{-k}$, where $k$ is a security parameter, then $K =\lceil \frac{k ln 2}{\varepsilon(1-g)} \rceil $\\\\
+Efficiency analyses comprises  the CPU computation, I/O  in bought client and server side and bandwidth. Di Pietro evaluates his proposed schemes(s-POW and s-POW1 \footnote{Modification of s-POW protocol, which uses $K$ bit string  instead of file hash as a key in hash-map}) and compares it with PoW.\footnote{"We have run our implementation of both schemes on a 64-bit RedHat box with an Intel Xeon 2.27GHz CPU, 18 GiB of RAM and an IBM 42D0747 7200 RPM SATA hard disk drive."}\cite{PoW} On client-side both s-POW and s-POW1 schemes are faster then PoW. The complexity up growth of s-POW and PoW schemes are equivalent of file size growth. It is reasonable because in both cases the dominant operation is hashing. While in s-POW1 computation cost becomes  constant for large files. As in the s-POW1 no hashing is used and only random disk access is needed to get required bit. For  visualization it is better to refer  the \hyperref[fig:POWvsPoW]{diagrams} provided by authors:
 \begin{figure}[ht] 
 \begin{center}
 \includegraphics[width=1.0\textwidth]{POWvsPoW}
@@ -360,51 +360,164 @@ Efficiency analyses is represented in the CPU computation, I/O and bandwidth ter
 \end{center}
 \end{figure}
 
-To demonstrate the server-side performance, it is convenient to divide it in two phases: initialization and regular execution. When the file is first uploaded on server-side, that represent initialization phase, all other communication between client and server is the regular execution phase. In initialization phase PoW and s-POW both performs file hashing. It follows with reduction and mixing phase and Merkle-tree calculation in case of  \hyperref[sub:Soltuion1]{PoW} and $n$ challenge computation in s-POW case.In s-POW when all pre-calculated challenges are used, server should pre-calculate them again but this is considered to be a part of regular execution phase. In regular execution phase in PoW performs Merkle-tree verification while in s-POW it performs only look-up to get the correct tuple and the valid response from $res[]$  array. But in addition to look-up, s-POW needs to recalculate the challenges(responses). Dispite the pre-calculated challenges, which are done in order to decrees the file access, on server side PoW is faster then provided s-POW. It is also importatn to mention the storage efficiency, PoW need only Merkle-tree root value to store on server side, while s-POW for operation need storing the hash-map data structure.  Base on the performed analyses and execution, authors gives the asymptotic analyses of schemes:
+To demonstrate the server-side performance, it is convenient to divide it in two phases: initialization and regular execution. When the file is first uploaded on server-side, that represent initialization phase, all other communication between client and server is the regular execution phase. In initialization phase PoW and s-POW both performs file hashing. It follows with reduction and mixing phase and Merkle-tree calculation in case of  \hyperref[sub:Soltuion1]{PoW} and $n$ challenge computation in s-POW case. In s-POW when all pre-calculated challenges are used, server should pre-calculate them again but this is considered to be a part of regular execution phase. In regular execution phase the  \hyperref[sub:Soltuion1]{PoW}  performs Merkle-tree verification while the s-POW performs only look-up to get the correct tuple and the valid response from $res[]$  array. But in addition to look-up, s-POW needs to recalculate the challenges(responses). Dispite the pre-calculated challenges, which are done in order to decrees the file access, on server side PoW is faster then provided s-POW. It is also important to mention the storage efficiency, PoW need only Merkle-tree root value to store on server side, while s-POW for operation requires storing of the hash-map data structure.  Based on the performed analyses and execution, authors give the \hyperref[table:asymptoticAnalysis]{asymptotic analyses} of schemes. 
 
 
 \begin{savenotes}
 \begin{table}[!htpb]
 \centering
 \addtolength{\tabcolsep}{3pt}
-\begin{tabular}{|L{4cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
+\begin{tabular}{|L{6cm}|L{2.5cm}|L{2.5cm}|L{2.5cm}|}
 \rowcolor{lightblue}
 \hline
 &PoW&s-POW&s-POW1\\
 \hline
-Client-side computation&$O(m)hash$ & $O(m)hash$ & $O(k)PRNF\footnote{Pseudorandom number generator}$ 
-Client-side I/O&$O(m)$&$O(m)$&$O(k)$
-Server-side computation (initialization phase)&&&
-Server-side computation (regular execution phase)&&&
-Server-side I/O (initialization phase)&&&
-Server-side I/O (regular execution phase)&&&
-Server-side storage&&&
-Bandwidth&&&
+Client-side computation&$O(m)hash$ & $O(m)hash$ & $O(k)PRNG\footnote{Pseudorandom number generator}$ \\
+\hline
+Client-side I/O&$O(m)$&$O(m)$&$O(k)$\\
+\hline
+Server-side computation (initialization phase)&$O(m) hash$&$O(m) hash$&$O(nk)PRNG$\\
+\hline
+Server-side computation (regular execution phase)&$O(1)$&$O(nk) PRNG$& $O(nk)PRNG$\\
+\hline
+Server-side I/O (initialization phase)&$O(m)$&$O(m)$&$O(nk)$\\
+\hline
+Server-side I/O (regular execution phase)&$0$&$O(nk)$&$O(nk)$\\
+\hline
+Server-side storage&$O(1)$&$O(nk)$&$O(nk)$\\
+\hline
+Bandwidth&$O(k\ log\ k)$&$O(k)$&$O(k)$\\
+\hline
 
 \end{tabular}
-\caption{PoW 1Time Comparison}
-\label{table:paramProbCodes}
+\caption{Asymptotic analyses of schemes. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter.}
+\label{table:asymptoticAnalysis}
 \end{table}
 \end{savenotes}
 
 
 
+\subsection{Solution \# 3}
+\label{sub:Soltuion3}
+
+The subsection reviews the solution offered by Chao Yang in his work "Provable Ownership of File in De-duplication Cloud Storage".\cite{POF} Provable Ownership of File, referred as a POF scheme, is two party protocol and helps the client to prove to the server that it indeed owns the file. The subsection first descripes the scheme, followed by the security and efficiency analyses. To demonstrate the  advantage of their scheme,  authors make comparison with \hyperref[sub:Soltuion1]{PoW} protocol.
+
+\subsubsection{Setup}
+\label{subsub:setup3}
+
+POF is a cryptographic protocol that obliges a client to prove to the server that it owns the whole file. Client first sends the hash of the file to the server and if such hash already exist on server side, the POF protocol invokes and server challenges the client to prove the file possession. The POF consists of two phases: setup and challenge. In setup phase server decomposes the file $F$ in $f$ blocks. It chooses a random number  $R_c$  and generates session key $K_s = h_{sk}(R_c)$ (where $sk$ is pre-shared symmetric key) and two random seeds $S_1$ and $S_2$. Those randoms seeds are used in challenge phase to choose the blocks of the  file. Server provides the client with random number $R_c$, in order to generate the same session key $K_s$. Client generates the $K_s$ session key and  send back to server the $h_{K_s}(R_c, TS)||TS$ (where $TS$ is the current timestamp) value to confirm the generation of session key.  The session key $K_s$ is keep in secret and is used in challenge phases, while the $R_c$ could be deleted.\\\\
+In challenge phase server sends the $c$ number of blocks($1 \leqslant c \leqslant f $) and two random seeds $S_1,S_2$ to the client. Random seeds $S_1$ and $S_2$ are used to produce block indices $i_\tau$ and dynamic coefficient $\delta_\tau$  where ($1 \leqslant \tau \leqslant c$). Client decomposes the whole  file in $f$ block $F=(b_1,b_2,b_3,..b_f)$ and computes the proof as hash of concatenation of the hashes of choose block and dynamic coefficients.  $V' = h_{K_ss}(h_{K_s}(b_{i_1},\delta_1)||h_{K_s}(b_{i_2},\delta_2)|| ...||h_{K_s}(b_{i_\tau},\delta_\tau))$. Client sends to the server the generated proof $V'$, server makes the same calculation, but uses the original file and generates the $V$ proof. If $V'=V$ the server is convinced that the client  owns the file. 
  
+
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff3}
+
+
+The POF has three major security requirement. First -- randomness of indices for the blocks of the file. Second -- the original file  must be involved for calculation the proof. And third -- the calculated proof should be different for different times. When all these three security requirement holds the scheme resistants to cheating is as high as the resistants of collision attack of the hash function used in POF. The authors provide the proof of the following theorem: "For the proposed POF scheme, the complexity for cheating of the ownership verification is at least as difficult as performing strong collision attack of the hash function"\\\\
+To demonstrate the efficiency of the POF scheme, it is compared with \hyperref[sub:Soltuion1]{PoW}. The authors execute both schemes in the same setup\footnote{The experiments were conducted on an Intel 3.0GHz Intel Core 2 Duo system with 64KB cache, 1333MHz EPCI bus, and 2048MB of RAM. The system runs Ubuntu10.04, kernel version 2.6.34. We used C++ for the implementation. We also used the SHA256 from Crypto++ version 0.9.8b\cite{crypto}. The files are stored on an ext4 file system on a Seagate Barracuda 7200.7 (ST23250310AS) 250GB Ultra
+ATA/100 drive.} and demonstrate the results for each of them in $milliseconds$. Two protocols computation time is decomposed in three parts: client, server and network computation time.\\\\ 
+Client computation time is covered in details. For POF protocol it includes, time to read randomly chosen parts of original file, key derivation time and time to compute the proof. While PoW for simplicity, includes just whole file reading and Merkle-tree calculation time on original file.(reducing and mixing phases are omitted) And even in this scenario POF is more time efficient on client side. In POF file's portions reading time increases as file size increase, but the time for proof computation could stay the same and does not depend on file size. For PoW -- the whole file reading time and Merkle-tree computation time, both increase as file size grows. Based on results,(see \hyperref[Appendix 1] {Appendix 1})  we can demonstrate  the difference in client time computation (in average), between POF and PoW schemes. The schemes had run on different size of files and the file size was doubling each time. The starting size was $0.015625MB$ and it had increased till $1024$MB. We can see that the file size was increased 65536 times. As file size was growing the time consumption was changing. In case of POF  for the disk reading , the time was increased approximately $37$ times and key derivation and  proof computation time was remained mostly constant(around $0.62 ms$). So the total time was increased $8$ times (at stating point the total time was $0.77$ and at the ending point -- $6.15 ms$). In case of PoW -- disk reading was increased $28684$ times and Merkle-tree computation approximately $40955$ times, overall $39296$ time for total time. (at stating point the total time was $0.66$ and at the ending point -- $25926.39 ms$). \\\\
+Server side computation time is considered to be same or less then client side computation for POF. In case of PoW it is to check the Merkle-tree authentication signature, which is not time consuming. Network transmitting time, is the time required to transfer the data generated by protocols. In the given setup the data generated for both protocols was less then $1KB$. The server and network times both are negligible and based on the client computation time it was demonstrated the POF is more efficient then PoW.
+
+\subsection{Solution \# 4}
+\label{sub:Soltuion4}
+
+The subsection covers solution offered by Jia Xu and his colleagues in the paper work "Weak Leakage-Resilient Client-side Deduplication of Encrypted Data in Cloud Storage".\cite{Leakage-Resilient} In previous solutions reviewed in this work, the server is considered as a honest player and effort is directed to prevent malicious clients. While this paper address both client and server side threats. Paper underlines the importance of confidentiality of user's sensitive data. It claims that, the remote storage provider should not have access to the users sensitive information and proposes the solution of Proof of Work protocol over the encrypted files on client side. Jia Xu expends the security restriction of Halevi's \hyperref[sub:Soltuion1]{PoW}  protocol, from specific class of file distribution to arbitrary file distribution. But on the other hand it restricts the data leakage size and security holds if the leakage takes place only before the protocol starts, while in PoW leakage could happen any time, but not the during protocol communication.\\\\
+Using encryption on client side delivers confidentiality of sensitive information but, on the other hand it rises the risk of \textit{Poison Attack}, also known as \textit{Target Collision attack}.\cite{PoisonAttac} When encrypted file is uploaded on server side, server is not able to check consistency between file and meta-data (e.g. hash of the file). This feature opens possibility to attacker to substituted the encrypted file with the same size malicious one. And if later the owner of the file retrieves it, she gets poisoned file not the original one. Solution demonstrated in this subsection, takes into consideration these type of threats and  offers solid security over some restricted leakage conditions.
+
+
+\subsubsection{Setup}
+\label{subsub:setup4}
+
+The Weak Leakage-Resilient Client-side Deduplication scheme, is refereed as $CSD$ shortly and is represented with four probabilistic polynomial-time algorithms $E, D, P, V$ .  $E$ is an encryption algorithm: $E(F,1^\lambda) 	\rightarrow (\tau, F_0, F_1)$, where $F$ is file, $\lambda$ is security parameter, $\tau$ encryption key and $C_0 and C_1$ are cipher-texts. $C_0$ -- encrypted key and $C_1$ -- encrypted file. $D(\tau,C_1) \rightarrow F $ -- decodes $C_1$ cipher. $P(F) \rightarrow y_0,  y_0 \in \{\tau,\perp\} $ -- prover algorithm , which interacts with verifier algorithm and outputs the encryption key $\tau$. $V(C_0) \rightarrow (y_1,y_2), y_1 \in \{Accept; Rejectg\} and y_2 \in \{hash(C_1),\perp \}$ -- verifier algorithm, which interacts with prover algorithm.\\\\
+The $CSD$ protocol involves the client and the server. When a client uploads the file first time on the server, it generates the random AES\cite{AES} key $\tau$ and two ciphers: $C_F$ and $C_\tau$. Where $C_F$ is an encrypted file, using AES encryption and generated  key $\tau$  and is almost as large as original file. While  $C_\tau$ is the encrypted random key $\tau$ generated by client, using some custom encryption method and the file $F$ as a key. And the size of $C_\tau$ is small number -- upper bounded by $|\tau|$. After the key and ciphers are generated, client sends hash value of original file $F$, together with two cipher $C_F$ and $C_\tau$.  Server receives the data form client, stores the encrypted file $C_F$ in secondary storage(large but slow storage). While meta-data of encrypted file is stored in primary storage and is represented as key-value pair entry in the lookup database: $(key = hash(F); value = (hash(C_F), C_\tau))$ , where $hash(C_F)$ is calculated by server and $hash(F)$ and $C_\tau$ is received form client.\\\\
+If client tries to upload the file -- already located on server side, it first sends the $hash(F)$ to the server.  Based on the received $hash(F)$, the server identities  the tuple $(hash(C_F),C_\tau)$ in the lookup database. It retrieves the $C_\tau$ value and sends back to client. If the client indeed owns the file, she can decrypt the cipher $C_\tau$ using the file as an decryption key and retrieve the ASE key $\tau$. After obtaining the AES key $\tau$, client encrypts the original file, computes the hash of it and sends the $hash(C_F)$ as a proof to the server. Server compares the received $hash(C_F)$ hash value, with the one kept in its lookup database. If the values are equal then the client gains the access to the file, otherwise access is forbidden. After client is identified as honest, she can remove the original file and keep only the ASE key $\tau$, which she will use later for decrypting the downloaded file.\\\\
+
+
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff4}
+
+To demonstrate the security of the $CSD$ scheme, authors use the game-based security proof. The security definition states that, adversary can not learn anything new about the a single bit of the file( thereof about the file in  whole), from client-side deduplication process, besides the side channel leakage. Security game $G^{CSD}_A$ between challenger and PPT $A$ adversary consists of two learning and two guessing phase. In first learning phase, adversary receives the output of some PPT function $y$ form the challenger. $y < (\varepsilon_0 - \varepsilon_1)$ , where  $\varepsilon_0$ is a minimum min-entorpy of the file and  $(\varepsilon_0 - \varepsilon_1)$ -- is a max length of bits adversary is allowed to learn about the file. For it's part $\varepsilon_0>\varepsilon_1  \geq\lambda$, where $\lambda$ is a security parameter. Adversary chooses the $v$ indices ($i_1, ...i_v$)  and the challenger chooses the subsequence of the file $\alpha \in \{0,1\}^v$, such the the each bit chosen based on $v$ indices from that subsequence $\alpha$ corresponds the bit from the file $F$ also chosen based those indices. The challenger chooses the bit  $b \in \{0,1\}$ and sets $\alpha_b=\alpha$ and $\alpha_{1-b}  \in_R \{0,1\}^v$ and send those $\alpha_0$ and $\alpha_1$ to the adversary. It is followed with the first guessing phase, where an other extractor $A_*$ produces the guess of $b$ bit, $b_{A_*} \in \{0,1\}$. In the second guess phase the adversary tries to guess the $b$ bit, $b_A \in \{0,1\}$.\\\\
+The $CSD$ is secure in $(\varepsilon_0, \varepsilon_1)$ if the probability of guessing $b$ single bit by extractor $A_*$ plus some negligible in security parameter $negl(\lambda)$, is grater or equal then probability of adversary $A$ guessing the same $b$ bit: $Pr[b_A=b]\leq Pr[b_{A_*}=b]+negl(\lambda)$. Authors construct the secure $CSM$ in the paper and have provide the proof of the security statement in there work.\\\\
+The $CSD$ scheme efficiency is measured based on running them of prover $P$ and verifier $V$ interactive algorithm.\footnote{"The test machine is a laptop computer, which is equipped
+with a 2.5GHz Intel Core 2 Duo mobile CPU (model T9300), a 3GB PC2700-800MHZ RAM and a 7200RPM hard disk. The test machine runs 32 bits version of Gentoo Linux OS with kernel 3.1.10. The file system is EXT4 with 4KB page siz" \cite{Leakage-Resilient}}It is compared with the running time of transferring files without deduplication or encryption. The \hyperref[fig:CSD]{graph} provided by authors shows, that it is more efficient to use $CSD$ scheme for secure deduplication rather then avoid it at all and transfer whole files via network.\\\\
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[height=310pt,width=400pt]{CSD}
+\caption{$CSD$ efficiency graph}
+\label{fig:CSD} .
+\end{center}
+\end{figure}
+
+\pagebreak
+
+\subsection{Solution \# 5}
+\label{sub:Soltuion5}
+The subsection reviews the solution offered by Nesrine Kaaniche and Maryline Laurent in their paper work "A Secure Client Side Deduplication Scheme in Cloud Storage Environments".\cite{Kaaniche} Like the last solution, it addresses both the malicious clients and the curious-servers issues. It provides the means to control the integrity of both players, neither server no client gets fooled. In addition it address the private file shearing issues. The subsection first covers how the solution operates and provides security and efficiency analyses later.
+
+\subsubsection{Setup}
+\label{subsub:setup5}
+
+
+The security scheme is implemented on OpenStack Swift \footnote{The open-source cloud storage project - \url{https://www.swiftstack.com/product/openstack-swift}} platform and it is based on  convergent encryption concept\cite{CovergentEnc}, but for identification it uses Merkle-tree signature. The authors give a clear and simple \hyperref[fig:ConvMT]{scheme} of cloud storage architecture.
+\begin{figure}[ht] 
+\begin{center}
+\includegraphics[height=210pt,width=400pt]{ConvMT}
+\caption{Client uploads and stores the data on server and Users are allowed to access (depend on their access rights) the content of stored data}
+\label{fig:ConvMT} .
+\end{center}
+\end{figure}
+When data owner desires to outsource the file $F$ on the remote server, he first encrypts it, and uses the content hash $K_F$ as an encryption key. He builds the Merkle-tree on the encrypted file and  uses the root value $MT_F$ as the file identifier, which is unique on the remote storage. Client sends the $MT_F$ identifier\footnote{The client also adds nonce $n$ to the identifier to avoid a replay attack} to the server and checks weather the file already is located on the server or not. The server checks in the database and if the received identifier does not matches, asks client to upload the file. The client in his turn, sends the encrypted file and the encryption key $K_F$ -- encrypted by the public keys of the authorized users (users with whom client desires to share the file). Later the encrypted key $K_F$ is included in the file meta-data. After the server stores the file, it sends the acknowledgement message to client, which includes the stored file's URI(Uniform Resource Identifier).\footnote{The solution is implement on Swift, which is an object store, so each file could be reached by URI}\\\\
+If the file is already located on the server, then the server sends to the client some number of random indecies of Merkle-tree leaves. The client calculates the sibling paths of chosen leaves  and sends (leaves together with sibling paths) as proof of ownership to the server. Server validates the received proof and if it holds, it sends acknowledgment on storing the file and the URI of requested file to the client. Otherwise, client is failed to access the file.\\\\
+When client desires to access the outsourced data he owns -- he sends the file URI to the server. The server, check in its database , weather the client owns the file. If the client is the owner of the requested file, server sends encrypted file to the client. After receiving the file, client first extracts the file meta-data(i.e. encrypted $K_F$ encryption key), decodes the encrypted $K_F$ key with own private key and use $K_F$ to decode extracted file.\\\\
+
+
+
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff5}
+Authors offered very brief overview of security, without any game-based or simulation-based security proof. They address three main issues in their scheme: Data confidentiality, privacy and access control.  When client wants to store new data to the remote storage, he calculates the Merkle-tree  over the encrypted file and sends the root value together with nonce $n$. Nonce  prevents from replay attacks\footnote{"Replay attacks are the network attacks in which an attacker spies the conversation between the sender and receiver and takes the authenticated information"}(stilling the identifier), while transferring the data. But if the adversary still will be able to obtain the identifier (root value of the Merkle-tree), he is required to proof the ownership of the file and this proof is based on Merkle-tree lemma \cite{MerkleLemma} and prevents malicious client to access the confidential data. Scheme also prevents curios  servers to rich  the users' private data and built users' profile. The server is not able to access the data, because it is encrypted and the encryption key is secured with asymmetric encryption. Access control is managed by embedding the symmetric encryption key $K_F$ encrypted by public keys of the users who are authorized to access the file.\\\\
+To evaluate the performance of the solution, authors implement the OpenStack swift framework and integrate it with their own scheme for security.\footnote{"For our tests, we used 1000 samples in order to get our average durations. In addition, we conducted our experiments on an Intel core 2 duo, started on single mode,where each core relies on 800 MHz clock frequency (CPU).\cite{CovergentEnc}"} The scheme's performance time is decomposed in two parts: Client and Server computation time. The client computation time is consist of the data encryption/decryption time and data upload/download time. For encryption/decryption of file the scheme uses symmetric AES(Advanced Encryption Standard) in CBC(Cipher Block Chaining) mode.
+The authors examine the performance of file encryption/decryption using different key sizes(key size = $128, 192 or 256 bits$) of AES encryption and different file input sizes (file size = $k * 10^5$ where $k \in \{ 1,2,..10\}$ ).  The results  exposes -- the computation time is dependent on a key size and a file size and as they are increasing the time of computation increases as well. The encryption/decryption time for the smallest key($128 bits$) and the smallest input file size($0.1 mb$) is 1 ms, while with the largest key size and input file size (key size = $256 bit$, file size = $1mb$) is less then 12 ms.  The authors examine the upload/download time and the results shows -- uploading time is greater then downloading time. Also time remains constant for small files (file size < $5*10^4$ bits), while for  larger files it depends on file size and time increase as the file size increases.
+To compare the cryptographic operations to the file transfer operation on client-side, it is easy to see that cryptographic operations are consuming much less time file upload/download. And the comparisons that is given in the paper \cite{CovergentEnc} claims, that encrypting of the  $0.8 mb$  size file takes $0.1ms$, while uploading it takes $10s$, which means the encryption operation is 1\% of uploading operation. For securing the AES encryption key, the scheme uses ECC (Elliptic Curve Cryptography).\cite{ECC}  
+
+
+  
+
+
+\subsection{Solution \# 6}
+\label{sub:Soltuion6}
+
+\subsubsection{Setup}
+\label{subsub:setup6}
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff6}
+
+
+\subsection{Solution \# 7}
+\label{sub:Soltuion7}
+
+\subsubsection{Setup}
+\label{subsub:setup7}
+
+\subsubsection{Security And Efficiency}
+\label{subsub:secAndeff7}
+
+
 %Outlines the main thing your thesis does. Your thesis describes a novel algorith for X? Your main contribution is a case study that replicates Y? Describe it here.
 \begin{itemize}
  \item Proofs of Ownership in Remote Storage Systems - 2011 + 
- \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012 - 
- \item Provable Ownership of File in De-duplication Cloud Storage - 2013
- \item Leakage-Resilient Client-side Deduplication of Encrypted Data in Cloud Storage - 2013
+ \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012 +
+ \item Provable Ownership of File in De-duplication Cloud Storage - 2013 +
+ \item Leakage-Resilient Client-side Deduplication of Encrypted Data in Cloud Storage - May 8,2013 +
  \item A Secure Client Side Deduplication Scheme in Cloud Storage Environments - 2014
  \item A Tunable Proof of Ownership Scheme for Deduplication Using Bloom Filters - 2014
  \item An efficient confidentiality-preserving Proof of Ownership for Deduplication -2014
  
 \end{itemize}
-
-
-
-
 
 \pagebreak
 
@@ -468,7 +581,49 @@ The shorter, the easier it is to keep consistent with the parts it summarizes.
 
 \section{Appendix 1}
 
+\label{Appendix 1}
 
+\subsection*{POF -- PERFORMANCE MEASUREMENTS AND COMPARISON}
+
+
+
+\begin{savenotes}
+\begin{table}[!htpb]
+\centering
+\addtolength{\tabcolsep}{3pt}
+\begin{tabular}{|L{2cm}|L{2cm}|L{2cm}|L{2cm}|L{2cm}|L{2cm}|L{2cm}|}
+\rowcolor{lightblue}
+\hline
+
+&\multicolumn{3}{|C{6.5cm}}{ PoW (ms)}&\multicolumn{3}{|C{6.5cm}|}{POF (ms)}\\ \hline
+
+
+Size (MB)&Disk Read&Merkle Tree&Total&Disk Read&Algorithm&Total\\ \hline
+
+0.015625&0.09&0.57&0.66&0.15&0.62&0.77 \\ \hline
+0.03125&0.13&1.07&1.2&0.16&0.42&0.58 \\ \hline
+0.0625&0.19&1.73&1.92&0.17&0.62&0.79 \\ \hline
+0.125&0.34&4.01&4.35&0.2&0.63&0.83 \\ \hline
+0.25&0.62&6.82&7.44&0.24&0.63&0.87 \\ \hline
+0.5&1.17&12.51&13.68&0.27&0.58&0.85 \\ \hline
+1&2.03&21.08&23.11&0.29&0.62&0.91 \\ \hline
+2&4.44&42.46&46.9&0.31&0.62&0.93 \\ \hline
+4&8.19&84.46&92.65&0.55&0.63&1.18 \\ \hline
+8&14.76&168.43&183.19&0.66&0.65&1.31 \\ \hline
+16&28.62&334.88&363.5&0.82&0.64&1.46 \\ \hline
+32&56.75&669.38&726.13&1.32&0.67&1.99 \\ \hline
+64&112.58&1352.01&1464.59&4.34&0.64&4.98 \\ \hline
+128&223.08&2692.07&2915.15&5.56&0.65&6.21 \\ \hline
+256&437.84&5393.64&5831.48&2.11&0.65&2.76 \\ \hline
+512&1269.46&10932.49&12201.95&5.53&0.64&6.17 \\ \hline
+1024&2581.56&23344.83&25926.39&5.52&0.63&6.15 \\ \hline
+
+
+\end{tabular}
+\caption{Client Computation Time -- POF vs PoW }
+\label{table:asymptoticAnalysis}
+\end{table}
+\end{savenotes}
 
 
 \end{document}
