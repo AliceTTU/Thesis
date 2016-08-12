@@ -111,4 +111,13 @@ A.~M. Darrel~Hankerson and S.~Vanstone, \emph{Guide to Elliptic Curve
   Cryptography.}\hskip 1em plus 0.5em minus 0.4em\relax Springer-Verlag New
   York, 2003.
 
+\bibitem{BF}
+A.~O. A.~S. Jorge~Blasco, Roberto Di~Pietro, ``A tunable proof of ownership
+  scheme for deduplication using bloom filters,'' \emph{Communications and
+  Network Security (CNS), 2014 IEEE Conference on}, pp. 481--489, 2014.
+
+\bibitem{BF-Original}
+B.~H. Bloom, ``Space/time trade-offs in hash coding with allowable errors.''
+  \emph{Communications of the ACM}, vol.~13, pp. 422--426, 1970.
+
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  4 AUG 2016 15:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  12 AUG 2016 10:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1622,7 +1622,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--304
  []
 
 [16] [17] [18]
-<figures/Di_Pietro_Hash_Map.png, id=364, 538.01pt x 189.70876pt>
+<figures/Di_Pietro_Hash_Map.png, id=368, 538.01pt x 189.70876pt>
 File: figures/Di_Pietro_Hash_Map.png Graphic file (type png)
 
 <use figures/Di_Pietro_Hash_Map.png>
@@ -1639,7 +1639,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 346--349
 
  []
 
-<figures/POWvsPoW.png, id=370, 1154.3125pt x 343.2825pt>
+<figures/POWvsPoW.png, id=374, 1154.3125pt x 343.2825pt>
 File: figures/POWvsPoW.png Graphic file (type png)
 
 <use figures/POWvsPoW.png>
@@ -1701,7 +1701,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 433--436
 
  []
 
-[24] <figures/CSD.png, id=425, 612.2875pt x 500.87125pt>
+[24] <figures/CSD.png, id=429, 612.2875pt x 500.87125pt>
 File: figures/CSD.png Graphic file (type png)
  <use figures/CSD.png>
 Package pdftex.def Info: figures/CSD.png used on input line 448.
@@ -1733,7 +1733,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 464--464
 10 https : / / www . swiftstack . com / product /
  []
 
-<figures/ConvMT.png, id=444, 739.76375pt x 372.39125pt>
+<figures/ConvMT.png, id=448, 739.76375pt x 372.39125pt>
 File: figures/ConvMT.png Graphic file (type png)
 
 <use figures/ConvMT.png>
@@ -1764,17 +1764,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--485
 
  []
 
-[29] [30] [31] [32] [33] [34] (./thesis.bbl [35]) [36]
-Overfull \hbox (2.01282pt too wide) in paragraph at lines 591--620
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 495--497
+
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 504--510
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--510
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--510
+
+ []
+
+[31] [32] [33] [34] [35] [36] [37] (./thesis.bbl [38]) [39]
+Overfull \hbox (2.01282pt too wide) in paragraph at lines 642--671
  [][] 
  []
 
-[37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 626.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 626.
+[40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 677.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 677.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 626.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 626.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 677.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 677.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 2E962C6F014489241156926176836E6D;2463.
 
@@ -1783,10 +1803,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32044 strings out of 495020
- 579048 string characters out of 6181324
+ 32056 strings out of 495020
+ 579217 string characters out of 6181324
  698839 words of memory out of 5000000
- 34607 multiletter control sequences out of 15000+600000
+ 34611 multiletter control sequences out of 15000+600000
  61293 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,21n,97p,10378b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1806,25 +1826,28 @@ pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (37 pages, 423242 bytes).
+ype1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on thesis.pdf (40 pages, 460957 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 124 named destinations out of 1000 (max. 500000)
+ 653 PDF objects out of 1000 (max. 8388607)
+ 574 compressed objects within 6 object streams
+ 132 named destinations out of 1000 (max. 500000)
  329 words of extra memory for PDF output out of 10000 (max. 10000000)
 

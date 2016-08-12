@@ -26,47 +26,49 @@ while executing---line 2403 of file IEEEtran.bst
 Warning--empty journal in AES
 Name 1 in "Darrel Hankerson, Alfred Menezes, and Scott Vanstone" has a comma at the end for entry ECC
 while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Jorge Blasco, Roberto Di Pietro, Agustin Orfila, Alessandro Sorniotti" for entry BF
+while executing---line 2403 of file IEEEtran.bst
 
 Done.
-You've used 19 entries,
+You've used 21 entries,
             4087 wiz_defined-function locations,
-            960 strings with 10459 characters,
-and the built_in function-call counts, 12072 in all, are:
-= -- 996
-> -- 186
-< -- 107
-+ -- 118
-- -- 24
-* -- 513
-:= -- 1904
-add.period$ -- 38
-call.type$ -- 19
-change.case$ -- 16
-chr.to.int$ -- 255
-cite$ -- 21
-duplicate$ -- 884
-empty$ -- 1006
-format.name$ -- 29
-if$ -- 2835
+            975 strings with 10815 characters,
+and the built_in function-call counts, 13580 in all, are:
+= -- 1126
+> -- 208
+< -- 124
++ -- 134
+- -- 26
+* -- 576
+:= -- 2133
+add.period$ -- 42
+call.type$ -- 21
+change.case$ -- 18
+chr.to.int$ -- 297
+cite$ -- 23
+duplicate$ -- 991
+empty$ -- 1121
+format.name$ -- 31
+if$ -- 3193
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 125
-newline$ -- 82
-num.names$ -- 19
-pop$ -- 291
+int.to.str$ -- 21
+missing$ -- 138
+newline$ -- 88
+num.names$ -- 21
+pop$ -- 316
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 954
+skip$ -- 1076
 stack$ -- 0
-substring$ -- 614
-swap$ -- 688
-text.length$ -- 22
+substring$ -- 714
+swap$ -- 779
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 19
+type$ -- 21
 warning$ -- 2
-while$ -- 65
-width$ -- 21
-write$ -- 192
-(There were 6 error messages)
+while$ -- 73
+width$ -- 23
+write$ -- 211
+(There were 7 error messages)

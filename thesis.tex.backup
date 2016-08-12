@@ -390,7 +390,7 @@ Bandwidth&$O(k\ log\ k)$&$O(k)$&$O(k)$\\
 \hline
 
 \end{tabular}
-\caption{Asymptotic analyses of schemes. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter.}
+\caption{Asymptotic analyses of schemes.POW,s-POW and s-POW1. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter.}
 \label{table:asymptoticAnalysis}
 \end{table}
 \end{savenotes}
@@ -481,20 +481,68 @@ When client desires to access the outsourced data he owns -- he sends the file U
 Authors offered very brief overview of security, without any game-based or simulation-based security proof. They address three main issues in their scheme: Data confidentiality, privacy and access control.  When client wants to store new data to the remote storage, he calculates the Merkle-tree  over the encrypted file and sends the root value together with nonce $n$. Nonce  prevents from replay attacks\footnote{"Replay attacks are the network attacks in which an attacker spies the conversation between the sender and receiver and takes the authenticated information"}(stilling the identifier), while transferring the data. But if the adversary still will be able to obtain the identifier (root value of the Merkle-tree), he is required to proof the ownership of the file and this proof is based on Merkle-tree lemma \cite{MerkleLemma} and prevents malicious client to access the confidential data. Scheme also prevents curios  servers to rich  the users' private data and built users' profile. The server is not able to access the data, because it is encrypted and the encryption key is secured with asymmetric encryption. Access control is managed by embedding the symmetric encryption key $K_F$ encrypted by public keys of the users who are authorized to access the file.\\\\
 To evaluate the performance of the solution, authors implement the OpenStack swift framework and integrate it with their own scheme for security.\footnote{"For our tests, we used 1000 samples in order to get our average durations. In addition, we conducted our experiments on an Intel core 2 duo, started on single mode,where each core relies on 800 MHz clock frequency (CPU).\cite{CovergentEnc}"} The scheme's performance time is decomposed in two parts: Client and Server computation time. The client computation time is consist of the data encryption/decryption time and data upload/download time. For encryption/decryption of file the scheme uses symmetric AES(Advanced Encryption Standard) in CBC(Cipher Block Chaining) mode.
 The authors examine the performance of file encryption/decryption using different key sizes(key size = $128, 192 or 256 bits$) of AES encryption and different file input sizes (file size = $k * 10^5$ where $k \in \{ 1,2,..10\}$ ).  The results  exposes -- the computation time is dependent on a key size and a file size and as they are increasing the time of computation increases as well. The encryption/decryption time for the smallest key($128 bits$) and the smallest input file size($0.1 mb$) is 1 ms, while with the largest key size and input file size (key size = $256 bit$, file size = $1mb$) is less then 12 ms.  The authors examine the upload/download time and the results shows -- uploading time is greater then downloading time. Also time remains constant for small files (file size < $5*10^4$ bits), while for  larger files it depends on file size and time increase as the file size increases.
-To compare the cryptographic operations to the file transfer operation on client-side, it is easy to see that cryptographic operations are consuming much less time file upload/download. And the comparisons that is given in the paper \cite{CovergentEnc} claims, that encrypting of the  $0.8 mb$  size file takes $0.1ms$, while uploading it takes $10s$, which means the encryption operation is 1\% of uploading operation. For securing the AES encryption key, the scheme uses ECC (Elliptic Curve Cryptography).\cite{ECC}  
-
-
-  
+To compare the cryptographic operations to the file transfer operation on client-side, it is easy to see that cryptographic operations are consuming much less time file upload/download. And the comparisons that is given in the paper \cite{CovergentEnc} claims, that encrypting of the  $0.8 mb$  size file takes $0.1ms$, while uploading it takes $10s$, which means the encryption operation is 1\% of uploading operation. For securing the AES encryption key, the scheme uses ECC (Elliptic Curve Cryptography).\cite{ECC}  Unfortunate the paper\cite{CovergentEnc} doe snot covers the server time consumption and there is no any comparisons with other schemes. 
 
 
 \subsection{Solution \# 6}
 \label{sub:Soltuion6}
 
+This subsection is dedicated to a paper work "A Tunable Proof of Ownership Scheme for Deduplication Using Bloom Filters".\cite{BF} The paper offers  the data ownership proof scheme based on Bloom Filter.\cite{BF-Original} The bloom filter is a time and space efficient data structure. It serves to identify, weather the element is  the member of the set or not. The issue with this data structure is that it has a false positives. The element which does not belongs to the set, could be considered as the member, but never vice versa. Bloom filter allocates $s$ bits length vector (all bits set to $0$) and uses $n$ number of different evenly distributed hash factions. To add the element in bloom filter, the element is hashed with the $n$ different hash functions. The results of hashes is the indecies in the $s$ bits length vector and sets  bits to $1$ in those indecies. To check if the particular element belongs the set, it must be hashed using the $n$ different hash functions to produce the indecies. After the indecies are produced, the vector is examined in those indecies and if all the bits are set to $1$, then the  element belongs the set.
+
+
 \subsubsection{Setup}
 \label{subsub:setup6}
+The Proof of Ownership Scheme for Deduplication Using Bloom Filters, also referred as bf-POW is the two party protocol. It represents an interaction between $C$ as a client and the $S$ as a server. There are two scenarios, first when uploading the file first time on the server and second trying to upload the file already located on the server. In the first scenario, client  sends the hash of the file  $h_f$  to the server. The server identifies that the file is unique, based on the fingerprint $h_f$ and asks the client to upload the whole file $f$ and initialize all the required data structures, including bloom filter. After receiving the file $f$, server divides it into the equal size chunks, then computes the tokens $H:\{0,1\}^B\to\{0,1\}^l$, where the $B$ is a chunk size and $l$ is a token size. And finally the indecies are generated form token using some pseudo random function, $PRF: \{0,1\}^l \to \{0,1\}^{n}$ where $n$ is a positive  integer. Those indecies are inserted in the bloom filter $BF$ data structure. The server keeps the associative array $A$, which use the hash of the file $h_k$ as a key and the tuple $\{f,BF,AL\}$ as a value. In the tuple the $f$ is the content of the file, $BF$ represents the bits in the bloom filter and the $AL$ is the list of the client identifiers $id(C)$, who are owning the file. After the file is uploaded first time on the server , the entry is added to the array $A$.\\\\
+In the second scenario, when the file is already located on the server, there is no need to upload the file, instead the client must proof that he indeed owns it. The server initializes the array $pos$, which holds the randomly chosen chunks indecies and $J$ is the length of the $pos$ array. The server sends $pos$ array to the client and waits for the tokens generated basd on $pos$ array. The client performs the same operation as the server did in order to generate the tokens and creates the array $res$ which holds the generated tokens.  $res[i]\gets H(f[pos[i]])$ where $ 0 \leq i < J$ and $J$ is the number of randomly chosen indecies. The client sends $res$ array to server and the server generates the indeces using the $PRF$ and the token form $res$ array and checks whether each output belongs to bloom filter or not. If all outputs belongs to bloom filter then the client is considered as the file owner and the $id(C)$ is added to the $A[h_f].AL$ list. Otherwise the client fails to proof the file ownership. Later when client request to download the file , the server will check, if the $id(C) \in A[h_f].AL$
+
+
 
 \subsubsection{Security And Efficiency}
 \label{subsub:secAndeff6}
+
+
+To demonstrate the security of the bf-POW scheme authors valuate a probability of the adversary $\bar{C}$ convincing the server without owning the file. The adversary is allowed to communicate with file owners and receive some information about the file. The probability that adversary knows the $B$ bits long randomly chosen chunk of the file is $p$. And the probability to guess the randomly chosen byte is $g$. In order to pass the proof the adversary $\bar{C}$ should provide $J$ tokens, based on randomly chosen $J$ chunks by the server. And 
+those tokens used as seeds of $PRF$ should produce the indecies which will belong to the bloom filter for the given file $f$. In order to succeed there are two options. First $\bar{C}$ should produce the correct token and the second -- occurrence of false positive when checking for bloom filter membership. The probability of false positive in bloom filter is -- $p_f$. The $p_f$ depends on the size of the bloom filter and the number of hash functions.\footnote{If $J$ is a total number of elements that could be inserted in the bloom filter and $p_f$ is the probability of false positives, then the size of bloom filter is $s=\lceil - \frac {N\ ln\ p_f} {(ln2)^2}\rceil$ and the number of independet hash functions is $n=\lceil\frac{s} {N}ln2\rceil$} The probability to produce one randomly chosen token from the $J$ tokens correctly is $P(in_i)=P(tok_i)+p_f*P(\bar{tok_i}) \  (1)$ where $in_i$ and $tok_i$ are both events: $in_i$ --  i-th generated token, is a seed of the index which is the member of bloom filter; $tok_i$ -- adversary generates token correctly. In its part probability of event $tok_i$ is decomposed as the probability of knowing the chunk and probability of guessing it. The $p$ is the probability that the adversary knows the $i$-th chunk.  If adversary knows the $i$-th chunk, it means that he is able to compute the $i$-th token correctly. If he does not know, he should guess. Probability of guessing $B$ bits long chunk is lower, then probability of guessing $l$ bit token directly, $g_B << 0.5^l$.  And $P(tok_i)=p+(1-p)*0.5_l \  (2) $ In order to succeed adversary need to produce $J$ number of tokens form randomly chosen chunks. To compute the probability of success, we use these two formulas : $(1)$ and $(2)$\\\\
+$P(succ)=P(in_i)^J=(P(tok_i)+p_fP(tok_i))^J=(p+(1-p)*0.5^l + p_f*(p+(1-p)*0.5^l))^J=(p+(1-p)*0.5^l)+p_f(1-p)(1-0.5^l)^J=(p+(1-p)(0.5^l)+p_f(1-0.5^l))^J$\\\\
+And it is possible to choose $J$ in such a way that the $P(succ) \leq 2^{-k}$ , which is negligible in security parameter $k$.\\\\
+Authors provide the asymmetric analyses and the results of the experiments of bf-POW, in comparison with \hyperref[sub:Soltuion1]{POW} and \hyperref[sub:Soltuion2]{s-POW} schemes. Each time the client tries to upload the file, he hashes it. Also the client is required to calculate the tokens, meaning the $J$ times hashing operation over the $l$ length chunks. On server side there are two phases, with different computation complexity in each phase. In initialization phase (when the file is uploaded first time on server side) the dominant cost is the hashing operations used to insert elements in bloom filter. As there are $n$ different functions, it requires $n$ hashing operations. Also in initialization phase server should load the whole file into the memory, while in execution phases (when the file is already located on the server) the server needs only bloom filter to be loaded in the memory, and the indecies are generated by hashing the tokens received from client.(res[] array). In terms of bandwidth efficiency, bf-POW generates $J$ tokens. (the client sends tokens to the server in order to proof ownership). 
+The complexity of the schemes is represented in big-O notation, is provided by authors in the following  \hyperref[table:asymptoticAnalysisBF-POW]{table} : 
+
+\begin{savenotes}
+\begin{table}[!htpb]
+\centering
+\addtolength{\tabcolsep}{3pt}
+\begin{tabular}{|L{5cm}|L{2.5cm}|L{2.5cm}|L{3.5cm}|}
+\rowcolor{lightblue}
+\hline
+&PoW&s-POW&bf-POW\\
+\hline
+Client computation&$O(F)hash$ & $O(F)hash$ & $O(F)hash$ \\
+\hline
+Client I/O&$O(F)$&$O(F)$&$O(F)$\\
+\hline
+Server init computation &$O(F) hash$&$O(F) hash$&$O(F)hash$\\
+\hline
+Server regular computation &$O(1)$&$O(nk) PRF$& $O(\frac{l*k*(log1/p_f)}{p_f})hash$\\
+\hline
+Server init I/O &$O(F)$&$O(F)$&$O(F)$\\
+\hline
+Server regular I/O &$0$&$O(nk)$&$O(0)$\\
+\hline
+Server memory usage&$O(1)$&$O(nk)$&$O(\frac{log(1/p_f)}{l})$\\
+\hline
+Bandwidth&$O(k\ log\ k)$&$O(k)$&$O(\frac{lk}{p_f})$\\
+\hline
+
+\end{tabular}
+\caption{Asymptotic analyses of schemes:POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $m$ is the file size; $l$ is a $PRF$ output size; $p_f$ is a probability of false positive in BF}
+\label{table:asymptoticAnalysisBF-POW}
+\end{table}
+\end{savenotes}
+ 
+The authors have implement \hyperref[sub:Soltuion1]{POW}, \hyperref[sub:Soltuion2]{s-POW} and their bf-POW schemes, in order to compare the time performance results to each other. \footnote{"The benchmarks are run on an Intel Xeon 2.27GHz CPU with 18 GiB of RAM running RHEL Server release Santiago (6.1). The input fles contain random data, and their size ranges from 1 MiB to 4 GiB, with the size doubled at each step."} The results show that in bf-POW the better performance is dependent on the size of token, which in its part also decries bandwidth consumption. Smaller tokens influence the size of bloom filter and increase it in order to keep the security in place.(decries the probability of false positives.)  In the worst case bloom filters require  $2MB$ additional storage per file. 
+ 
+ 
 
 
 \subsection{Solution \# 7}
@@ -513,7 +561,7 @@ To compare the cryptographic operations to the file transfer operation on client
  \item Boosting Efficiency and Security in Proof of Ownership for Deduplication - 2012 +
  \item Provable Ownership of File in De-duplication Cloud Storage - 2013 +
  \item Leakage-Resilient Client-side Deduplication of Encrypted Data in Cloud Storage - May 8,2013 +
- \item A Secure Client Side Deduplication Scheme in Cloud Storage Environments - 2014
+ \item A Secure Client Side Deduplication Scheme in Cloud Storage Environments - 2014 +
  \item A Tunable Proof of Ownership Scheme for Deduplication Using Bloom Filters - 2014
  \item An efficient confidentiality-preserving Proof of Ownership for Deduplication -2014
  
