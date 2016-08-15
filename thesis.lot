@@ -1,4 +1,5 @@
 \contentsline {table}{\numberline {1}{\ignorespaces PoW 1Time Comparison\relax }}{18}{table.caption.1}
 \contentsline {table}{\numberline {2}{\ignorespaces Asymptotic analyses of schemes.POW,s-POW and s-POW1. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter.\relax }}{21}{table.caption.4}
-\contentsline {table}{\numberline {3}{\ignorespaces Asymptotic analyses of schemes:POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $m$ is the file size; $l$ is a $PRF$ output size; $p_f$ is a probability of false positive in BF\relax }}{33}{table.caption.7}
-\contentsline {table}{\numberline {4}{\ignorespaces Client Computation Time -- POF vs PoW \relax }}{40}{table.caption.8}
+\contentsline {table}{\numberline {3}{\ignorespaces Asymptotic analyses of schemes:POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $l$ is a $PRF$ output size; $p_f$ is a probability of false positive in BF\relax }}{33}{table.caption.7}
+\contentsline {table}{\numberline {4}{\ignorespaces Asymptotic analyses of schemes: ce-POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $l$ is a token size; $p_f$ is a probability of false positive in BF\relax }}{36}{table.caption.8}
+\contentsline {table}{\numberline {5}{\ignorespaces Client Computation Time -- POF vs PoW \relax }}{44}{table.caption.10}

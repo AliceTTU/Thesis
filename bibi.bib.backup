@@ -167,5 +167,37 @@
   year          = "1988",
   pages         = "369-378"
 }
-.
+
+@inbook{ECC,
+  author        = "Darrel Hankerson, Alfred Menezes, and Scott Vanstone ",
+  title         = "Guide to Elliptic Curve Cryptography.",
+  publisher     = "Springer-Verlag New York",
+  address       = "",
+  year          = "2003",
+  
+}
+
+
+@ARTICLE{BF,
+  author        = "Jorge Blasco,  Roberto Di Pietro, Agustin Orfila, Alessandro Sorniotti",
+  title         = "A Tunable Proof of Ownership Scheme for Deduplication Using Bloom Filters",
+  publisher     = "IEEE",
+  journal       = "Communications and Network Security (CNS), 2014 IEEE Conference on",
+  date		= "Oct, 2014",
+  year          = "2014",
+  pages         = "481-489"
+}
+
+@ARTICLE{BF-Original,
+  author        = "Burton H. Bloom",
+  title         = "Space/time trade-offs in hash coding with allowable errors.",
+  publisher     = "ACM",
+  journal       = "Communications of the ACM",
+  volume 	= "13", 
+  address       = "New York, NY, USA",
+  year          = "1970",
+  pages         = "422-426"
+}
+
+
 

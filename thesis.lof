@@ -2,3 +2,4 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Comparison of running time on client-side\relax }}{20}{figure.caption.3}
 \contentsline {figure}{\numberline {3}{\ignorespaces $CSD$ efficiency graph\relax }}{27}{figure.caption.5}
 \contentsline {figure}{\numberline {4}{\ignorespaces Client uploads and stores the data on server and Users are allowed to access (depend on their access rights) the content of stored data\relax }}{28}{figure.caption.6}
+\contentsline {figure}{\numberline {5}{\ignorespaces Comparison of the server side initialization phase: ce-POW, s-POW and bf-POW\relax }}{37}{figure.caption.9}

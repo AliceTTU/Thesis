@@ -29,9 +29,10 @@
 \contentsline {subsubsection}{\numberline {4.6.2}Security And Efficiency}{32}{subsubsection.4.6.2}
 \contentsline {subsection}{\numberline {4.7}Solution \# 7}{34}{subsection.4.7}
 \contentsline {subsubsection}{\numberline {4.7.1}Setup}{34}{subsubsection.4.7.1}
-\contentsline {subsubsection}{\numberline {4.7.2}Security And Efficiency}{34}{subsubsection.4.7.2}
-\contentsline {section}{\numberline {5}Evaluation}{35}{section.5}
-\contentsline {section}{\numberline {6}Future Work}{36}{section.6}
-\contentsline {section}{\numberline {7}Conclusions}{37}{section.7}
-\contentsline {section}{References}{38}{section.7}
-\contentsline {section}{\numberline {A}Appendix 1}{40}{appendix.1}
+\contentsline {subsubsection}{\numberline {4.7.2}Security And Efficiency}{35}{subsubsection.4.7.2}
+\contentsline {subsection}{\numberline {4.8}Summary}{38}{subsection.4.8}
+\contentsline {section}{\numberline {5}Evaluation}{39}{section.5}
+\contentsline {section}{\numberline {6}Future Work}{40}{section.6}
+\contentsline {section}{\numberline {7}Conclusions}{41}{section.7}
+\contentsline {section}{References}{42}{section.7}
+\contentsline {section}{\numberline {A}Appendix 1}{44}{appendix.1}

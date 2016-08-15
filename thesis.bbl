@@ -120,4 +120,9 @@ A.~O. A.~S. Jorge~Blasco, Roberto Di~Pietro, ``A tunable proof of ownership
 B.~H. Bloom, ``Space/time trade-offs in hash coding with allowable errors.''
   \emph{Communications of the ACM}, vol.~13, pp. 422--426, 1970.
 
+\bibitem{ce-POW}
+A.~O. Lorena Gonzalez-Manzano, ``An efficient confidentiality-preserving proof
+  of ownership for deduplication,'' \emph{Journal of Network and Computer
+  Applications}, vol.~50, pp. 49--59, 2015.
+
 \end{thebibliography}
