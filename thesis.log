@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  15 AUG 2016 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.11.1)  26 SEP 2016 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,21 +1418,21 @@ LaTeX Warning: Label `table:asymptoticAnalysis@cref' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 106.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 110.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -1505,7 +1505,7 @@ Package caption Info: hypcap package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring ON on input line 106.
+Package hyperref Info: Link coloring ON on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1515,9 +1515,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count309
 )
-LaTeX Info: Redefining \ref on input line 106.
-LaTeX Info: Redefining \pageref on input line 106.
-LaTeX Info: Redefining \nameref on input line 106.
+LaTeX Info: Redefining \ref on input line 110.
+LaTeX Info: Redefining \pageref on input line 110.
+LaTeX Info: Redefining \nameref on input line 110.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
@@ -1528,12 +1528,12 @@ LaTeX Info: Redefining \nameref on input line 106.
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 148.
-LaTeX Font Info:    Try loading font information for U+msa on input line 156.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 152.
+LaTeX Font Info:    Try loading font information for U+msa on input line 160.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 156.
+LaTeX Font Info:    Try loading font information for U+msb on input line 160.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1554,297 +1554,399 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 \openout7 = `thesis.lot'.
 
  [8]
-Underfull \hbox (badness 10000) in paragraph at lines 221--226
+Underfull \hbox (badness 10000) in paragraph at lines 225--230
 
  []
 
 [9] [10]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 239.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 241.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 243.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 245.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 250--253
+Underfull \hbox (badness 10000) in paragraph at lines 254--257
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--253
+Underfull \hbox (badness 10000) in paragraph at lines 254--257
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 266--275
+Underfull \hbox (badness 10000) in paragraph at lines 270--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--275
+Underfull \hbox (badness 10000) in paragraph at lines 270--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--275
+Underfull \hbox (badness 10000) in paragraph at lines 270--279
 
  []
 
 [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 
  []
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 291.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 295.
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--298
+Underfull \hbox (badness 10000) in paragraph at lines 298--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--298
+Underfull \hbox (badness 10000) in paragraph at lines 298--302
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 302--304
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
-[16] [17] [18]
-<figures/Di_Pietro_Hash_Map.png, id=380, 538.01pt x 189.70876pt>
+[16] [17] <figures/PoWgraph.png, id=380, 678.535pt x 357.335pt>
+File: figures/PoWgraph.png Graphic file (type png)
+
+<use figures/PoWgraph.png>
+Package pdftex.def Info: figures/PoWgraph.png used on input line 312.
+(pdftex.def)             Requested size: 354.86412pt x 186.8785pt.
+ [18 <./figures/PoWgraph.png>]
+<figures/Di_Pietro_Hash_Map.png, id=400, 538.01pt x 189.70876pt>
 File: figures/Di_Pietro_Hash_Map.png Graphic file (type png)
 
 <use figures/Di_Pietro_Hash_Map.png>
-Package pdftex.def Info: figures/Di_Pietro_Hash_Map.png used on input line 340.
+Package pdftex.def Info: figures/Di_Pietro_Hash_Map.png used on input line 355.
 
 (pdftex.def)             Requested size: 354.86412pt x 125.12999pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--349
+Underfull \hbox (badness 10000) in paragraph at lines 361--364
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--349
+Underfull \hbox (badness 10000) in paragraph at lines 361--364
 
  []
 
-<figures/POWvsPoW.png, id=386, 1154.3125pt x 343.2825pt>
+[19 <./figures/Di_Pietro_Hash_Map.png>]
+<figures/POWvsPoW.png, id=412, 1154.3125pt x 343.2825pt>
 File: figures/POWvsPoW.png Graphic file (type png)
 
 <use figures/POWvsPoW.png>
-Package pdftex.def Info: figures/POWvsPoW.png used on input line 357.
+Package pdftex.def Info: figures/POWvsPoW.png used on input line 372.
 (pdftex.def)             Requested size: 443.57848pt x 131.91534pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--362
+Underfull \hbox (badness 10000) in paragraph at lines 368--377
 
  []
 
-[19 <./figures/Di_Pietro_Hash_Map.png>] [20 <./figures/POWvsPoW.png>]
-Overfull \hbox (0.90524pt too wide) in paragraph at lines 375--376
+[20]
+Overfull \hbox (0.90524pt too wide) in paragraph at lines 390--391
 \OML/cmm/m/it/12 O\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 )\OML/cmm/
 m/it/12 PRNG[][][][][]$|  
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+[21 <./figures/POWvsPoW.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 423--425
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 432--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--422
+Underfull \hbox (badness 10000) in paragraph at lines 432--437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--422
+Underfull \hbox (badness 10000) in paragraph at lines 432--437
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 449--452
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--422
-
- []
-
-[22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 427--429
+Underfull \hbox (badness 10000) in paragraph at lines 449--452
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
+Underfull \hbox (badness 10000) in paragraph at lines 449--452
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
+Underfull \hbox (badness 10000) in paragraph at lines 449--452
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--437
-
- []
-
-[24] <figures/CSD.png, id=442, 612.2875pt x 500.87125pt>
+[25] <figures/CSD.png, id=468, 612.2875pt x 500.87125pt>
 File: figures/CSD.png Graphic file (type png)
  <use figures/CSD.png>
-Package pdftex.def Info: figures/CSD.png used on input line 449.
+Package pdftex.def Info: figures/CSD.png used on input line 465.
 (pdftex.def)             Requested size: 400.0002pt x 310.00961pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--454
+Underfull \hbox (badness 10000) in paragraph at lines 459--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--454
+Underfull \hbox (badness 10000) in paragraph at lines 459--470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--454
+Underfull \hbox (badness 10000) in paragraph at lines 459--470
 
  []
 
-[25] [26]
-Overfull \hbox (29.91272pt too wide) in paragraph at lines 461--462
+[26] [27 <./figures/CSD.png>]
+Overfull \hbox (29.91272pt too wide) in paragraph at lines 477--478
 \T1/ptm/m/n/12 their pa-per work "A Se-cure Client Side Dedu-pli-ca-tion Scheme
  in Cloud Stor-age Environments".[[]]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--467
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
 [][][]\T1/ptm/m/n/10 The open-source cloud stor-age project - [][]$\T1/pcr/m/n/
 10 https : / / www . swiftstack . com / product /
  []
 
-<figures/ConvMT.png, id=460, 739.76375pt x 372.39125pt>
+<figures/ConvMT.png, id=485, 739.76375pt x 372.39125pt>
 File: figures/ConvMT.png Graphic file (type png)
 
 <use figures/ConvMT.png>
-Package pdftex.def Info: figures/ConvMT.png used on input line 470.
+Package pdftex.def Info: figures/ConvMT.png used on input line 486.
 (pdftex.def)             Requested size: 399.997pt x 210.0037pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--478
+Underfull \hbox (badness 10000) in paragraph at lines 483--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--478
+Underfull \hbox (badness 10000) in paragraph at lines 483--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--478
+Underfull \hbox (badness 10000) in paragraph at lines 483--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 467--478
+Underfull \hbox (badness 10000) in paragraph at lines 483--494
 
  []
 
-[27 <./figures/CSD.png>] [28 <./figures/ConvMT.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 484--488
+[28 <./figures/ConvMT.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 500--504
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 498--500
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 514--516
 
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 523--528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
+Underfull \hbox (badness 10000) in paragraph at lines 523--528
 
  []
 
-[31] [32]
-Overfull \hbox (9.88576pt too wide) in paragraph at lines 553--554
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--528
+
+ []
+
+[32]
+Overfull \hbox (9.88576pt too wide) in paragraph at lines 569--570
 \T1/ptm/m/n/12 "An ef-fi-cient confidentiality-preserving Proof of Own-er-ship 
 for Dedu-pli-ca-tion" pa-per work[[]],
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 559--561
+Underfull \hbox (badness 10000) in paragraph at lines 575--577
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 564--568
+Underfull \hbox (badness 10000) in paragraph at lines 580--584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--568
+Underfull \hbox (badness 10000) in paragraph at lines 580--584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 564--568
+Underfull \hbox (badness 10000) in paragraph at lines 580--584
 
  []
 
-[35] [36] <figures/ce-POW.png, id=552, 786.94pt x 422.57875pt>
+[35] [36] <figures/ce-POW.png, id=573, 786.94pt x 422.57875pt>
 File: figures/ce-POW.png Graphic file (type png)
 
 <use figures/ce-POW.png>
-Package pdftex.def Info: figures/ce-POW.png used on input line 607.
+Package pdftex.def Info: figures/ce-POW.png used on input line 623.
 (pdftex.def)             Requested size: 399.98923pt x 210.00569pt.
- [37 <./figures/ce-POW.png>] [38] [39] [40] [41]
-(./thesis.bbl [42]) [43]
-Overfull \hbox (2.01282pt too wide) in paragraph at lines 694--723
+ [37] [38 <./figures/ce-POW.png>]
+Overfull \hbox (8.23187pt too wide) in paragraph at lines 653--672
  [][] 
  []
 
-[44]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 729.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 729.
+
+Underfull \hbox (badness 1796) in paragraph at lines 676--676
+[][][]\T1/ptm/m/n/10 "Given k ran-domly gen-er-ated val-ues, where each value i
+s a non-negative in-te-ger less than N,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--678
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 647--678
+
+ []
+
+[39] [40]
+Overfull \hbox (7.61284pt too wide) in paragraph at lines 683--696
+ [][] 
+ []
+
+[41]
+Underfull \hbox (badness 6477) in paragraph at lines 712--712
+[][][]\T1/ptm/m/n/10 The AES-256 out-put cal-cu-la-tion: $\OML/cmm/m/it/10 Ciph
+erText[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 PlainText[] \OT1/cmr/m/n/10 + \OML/
+cmm/m/it/10 Block[] \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 713--713
+[][][][][]$\T1/pcr/m/n/10 http : / / docs . openstack . org / developer / swift
+ / api / object _ api _ v1 _ overview .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--716
+
+ []
+
+[42] [43] [44] [45] [46] (./thesis.bbl [47]) [48]
+Overfull \hbox (2.01282pt too wide) in paragraph at lines 871--900
+ [][] 
+ []
+
+[49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 906.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 906.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 729.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 729.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 906.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 906.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2436DE0C52305D80C3A7F66466473F2C;2520.
+(rerunfilecheck)             Checksum: 7967C4C2800703F135F72B0771E10A74;2662.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32080 strings out of 495020
- 579614 string characters out of 6181324
- 699839 words of memory out of 5000000
- 34623 multiletter control sequences out of 15000+600000
+ 32136 strings out of 495020
+ 580770 string characters out of 6181324
+ 705910 words of memory out of 5000000
+ 34657 multiletter control sequences out of 15000+600000
  61293 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 62i,21n,97p,10378b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not ex
+ 62i,21n,97p,10378b,653s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.34} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.33} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.32} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.31} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
 t, replaced by a fixed one
@@ -1877,10 +1979,10 @@ mbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on thesis.pdf (44 pages, 574462 bytes).
+Output written on thesis.pdf (49 pages, 622290 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 619 compressed objects within 7 object streams
- 143 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 835 PDF objects out of 1000 (max. 8388607)
+ 741 compressed objects within 8 object streams
+ 164 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
