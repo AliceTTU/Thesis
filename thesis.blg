@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: bibi.bib.bib
+Warning--I didn't find a database entry for "IEEEexample:BSTcontrol"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Name 1 in "Shai Halevi, Danny Harnik, Benny Pinkas, and Alexandra Shulman-Peleg" has a comma at the end for entry PoW
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Jorge Blasco, Roberto Di Pietro, Agustin Orfila, Alessandro Sorniotti" for entry BF
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in ratio
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Moritz Borgmann, Tobias Hahn, Michael Herfert, Thomas Kunz,Marcel Richter, Ursula Viebeg and Sven Vowe" for entry DeDupDropBox
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Mark Storer, Kevin Greenan, Darrell Long, Ethan Miller" for entry PoisonAttac
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in AES
+Name 1 in "Darrel Hankerson, Alfred Menezes, and Scott Vanstone" has a comma at the end for entry ECC
+while executing---line 2403 of file IEEEtran.bst
+
+Done.
+You've used 22 entries,
+            4087 wiz_defined-function locations,
+            984 strings with 11005 characters,
+and the built_in function-call counts, 14269 in all, are:
+= -- 1187
+> -- 217
+< -- 131
++ -- 140
+- -- 27
+* -- 606
+:= -- 2245
+add.period$ -- 44
+call.type$ -- 22
+change.case$ -- 19
+chr.to.int$ -- 312
+cite$ -- 24
+duplicate$ -- 1042
+empty$ -- 1174
+format.name$ -- 32
+if$ -- 3355
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 145
+newline$ -- 91
+num.names$ -- 22
+pop$ -- 328
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1132
+stack$ -- 0
+substring$ -- 750
+swap$ -- 821
+text.length$ -- 27
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 22
+warning$ -- 2
+while$ -- 77
+width$ -- 24
+write$ -- 221
+(There were 7 error messages)

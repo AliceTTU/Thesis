@@ -1,0 +1,6 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces PoW overall performance\cite {PoW}\relax }}{19}{figure.caption.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces $\Im $ Hash-Map Structure \relax }}{20}{figure.caption.3}
+\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of running time on client-side \cite {DiPietro}\relax }}{22}{figure.caption.4}
+\contentsline {figure}{\numberline {4}{\ignorespaces $CSD$ efficiency graph \cite {Leakage-Resilient}\relax }}{28}{figure.caption.6}
+\contentsline {figure}{\numberline {5}{\ignorespaces Client uploads and stores the data on server and Users are allowed to access (depend on their access rights) the content of stored data \cite {Kaaniche}\relax }}{29}{figure.caption.7}
+\contentsline {figure}{\numberline {6}{\ignorespaces Comparison of the server side initialization phase: ce-POW, s-POW and bf-POW \cite {ce-POW}\relax }}{39}{figure.caption.10}

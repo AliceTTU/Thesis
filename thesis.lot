@@ -1,0 +1,8 @@
+\contentsline {table}{\numberline {1}{\ignorespaces PoW 1Time Comparison\relax }}{19}{table.caption.2}
+\contentsline {table}{\numberline {2}{\ignorespaces Asymptotic analyses of schemes.POW,s-POW and s-POW1. $n$ is the number of challenges; $m$ is the file size; $k$ is a security parameter. \cite {DiPietro}\relax }}{23}{table.caption.5}
+\contentsline {table}{\numberline {3}{\ignorespaces Asymptotic analyses of schemes:POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $l$ is a $PRF$ output size; $p_f$ is a probability of false positive in BF \cite {BF}\relax }}{35}{table.caption.8}
+\contentsline {table}{\numberline {4}{\ignorespaces Asymptotic analyses of schemes: ce-POW,s-POW and bf-POW. $F$ is the file size; $k$ is a security parameter; $n$ is number of challenges in s-POW; $l$ is a token size; $p_f$ is a probability of false positive in BF \cite {ce-POW}\relax }}{38}{table.caption.9}
+\contentsline {table}{\numberline {5}{\ignorespaces Comparison: Attacks \relax }}{41}{table.caption.11}
+\contentsline {table}{\numberline {6}{\ignorespaces Comparison: Security Features \relax }}{42}{table.caption.12}
+\contentsline {table}{\numberline {7}{\ignorespaces Data traffic and storage costs based on Amazon S3 pricing. Estimated amount of files and generated traffic is offered according the static of one of the most popular remote storage provider - Dropbox.\relax }}{47}{table.caption.13}
+\contentsline {table}{\numberline {8}{\ignorespaces Client Computation Time -- POF vs PoW \relax }}{52}{table.caption.14}
