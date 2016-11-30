@@ -177,18 +177,8 @@ Autor: [Gvantsa Grigolia]
 Annotatsioon
 \end{center}}
 
-Annotatsioon on lõputöö kohustuslik osa, mis annab lugejale ülevaate töö eesmärkidest, olulisematest käsitletud probleemidest ning tähtsamatest tulemustest ja järeldustest. Annotatsioon on töö lühitutvustus, mis ei selgita ega põhjenda midagi, küll aga kajastab piisavalt töö sisu. Inglisekeelset annotatsiooni nimetatakse Abstract, venekeelset aga
+Pilevatalletusteenuste andjad kasutavad andmeedastus ja -talletuskulude vähendamiseks ainutalletuse (dedubleerimise) tehnoloogiat, mis on küll tulus, kuid mille turvanõrkused võivad viia potentsiaalsete rünneteni, mis ohustavad andmete konfidentsiaalsust ja isikute privaatsust. Pärast esimeste rünnete ilmsikstulekut on viimaste aastate jooksul välja pakutud mitmeid lahendusi tagamaks turvalist dedubleerimist. Selle töö eesmärk on neist lahendustest ülevaate andmine, nende funktsionaalsuse iseloomustamine ja uurimine hindamaks lahenduste turvalisust, side- ja  talletusvajadusi. Töös vaadeldakse ja võrreldakse seitset turvaprotokolli, lähtudes avalikus teadus- jm kirjanduses kättesaadavat informatsiooni, ja võttes nende majandusliku efektiivsuse hinnangutel aluseks Amazoni veebiteenuste hinnakirja.  
 
-
-Sõltuvalt töö põhikeelest, esitatakse töös järgmised annotatsioonid:
-\begin{itemize}
-\item kui töö põhikeel on eesti keel, siis esitatakse annotatsioon eesti keeles mahuga $\frac{1}{2	}$ A4 lehekülge ja annotatsioon \textit{Abstract} inglise keeles mahuga vähemalt 1 A4 lehekülg;
-\item kui töö põhikeel on inglise keel, siis esitatakse annotatsioon (Abstract)  inglise keeles mahuga $\frac{1}{2}$ A4 lehekülge ja annotatsioon eesti keeles mahuga vähemalt 1 A4 lehekülg;
-\end{itemize}
-
-Annotatsiooni viimane lõik on kohustuslik ja omab järgmist sõnastust:
-
-Lõputöö on kirjutatud [mis keeles] keeles ning sisaldab teksti [lehekülgede arv] leheküljel, [peatükkide arv] peatükki, [jooniste arv] joonist, [tabelite arv] tabelit.
 \pagebreak
 
 
@@ -455,7 +445,11 @@ The subsection reviews the solution offered by Chao Yang in his work "Provable O
 \label{subsub:setup3}
 
 POF is a cryptographic protocol that obliges a client to prove to the server that it owns the whole file. The client first sends the hash of the file to the server and if such hash already exist on the server side, the POF protocol invokes and the server challenges the client to prove the file possession. The POF consists of two phases: setup and challenge. In setup phase server decomposes the file $F$ in $f$ blocks. It chooses a random number  $R_c$  and generates session key $K_s = h_{sk}(R_c)$ (where $sk$ is pre-shared symmetric key) and two random seeds $S_1$ and $S_2$. Those random seeds are used in challenge phase to choose the blocks of the  file. The server provides the client with random number $R_c$, in order to generate the same session key $K_s$. Client generates the $K_s$ session key and  sends back to server the $h_{K_s}(R_c, TS)||TS$ (where $TS$ is the current time stamp) value to confirm the generation of session key.  The session key $K_s$ is kept in secret and is used in challenge phase, while the $R_c$ could be deleted.\\\\
-In challenge phase server sends the $c$ number of blocks($1 \leqslant c \leqslant f $) and two random seeds $S_1,S_2$ to the client. Random seeds $S_1$ and $S_2$ are used to produce block indices $i_\tau$ and dynamic coefficient $\delta_\tau$  where ($1 \leqslant \tau \leqslant c$). Client decomposes the whole  file in $f$ block $F=(b_1,b_2,b_3,..b_f)$ and computes the proof as hash of concatenation of the hashes of choose block and dynamic coefficients.  $V' = h_{K_ss}(h_{K_s}(b_{i_1},\delta_1)||h_{K_s}(b_{i_2},\delta_2)|| ...||h_{K_s}(b_{i_\tau},\delta_\tau))$. Client sends to the server the generated proof $V'$, server makes the same calculation, but uses the original file and generates the $V$ proof. If $V'=V$ the server is convinced that the client  owns the file. 
+In challenge phase server sends the $c$ number of blocks($1 \leqslant c \leqslant f $) and two random seeds $S_1,S_2$ to the client. Random seeds $S_1$ and $S_2$ are used to produce block indices $i_\tau$ and dynamic coefficient $\delta_\tau$  where ($1 \leqslant \tau \leqslant c$). Client decomposes the whole  file in $f$ block $F=(b_1,b_2,b_3,..b_f)$ and computes the proof as hash of concatenation of the hashes of choose block and dynamic coefficients. 
+\begin{equation}\label{1}
+V' = h_{K_ss}(h_{K_s}(b_{i_1},\delta_1)||h_{K_s}(b_{i_2},\delta_2)|| ...||h_{K_s}(b_{i_\tau},\delta_\tau)) 
+\end{equation}
+Client sends to the server the generated proof $V'$, server makes the same calculation, but uses the original file and generates the $V$ proof. If $V'=V$ the server is convinced that the client  owns the file. 
  
 
 
@@ -480,7 +474,7 @@ Using encryption on client side delivers confidentiality of sensitive informatio
 \subsubsection{Setup}
 \label{subsub:setup4}
 
-The Weak Leakage-Resilient Client-Side Deduplication scheme, is refereed as $CSD$ shortly and is represented with four probabilistic polynomial-time algorithms $E, D, P, V$ .  $E$ is an encryption algorithm: $E(F,1^\lambda) 	\rightarrow (\tau, C_0, C_1)$, where $F$ is file, $\lambda$ is security parameter, $\tau$ encryption key and $C_0\ and\ C_1$ are cipher-texts: $C_0$ -- encrypted key and $C_1$ -- encrypted file. $D(\tau,C_1) \rightarrow F $ -- decodes $C_1$ cipher. $P(F) \rightarrow y_0,\  y_0 \in \{\tau,\perp\} $ -- prover algorithm , which interacts with verifier algorithm and outputs the encryption key $\tau$. $V(C_0) \rightarrow (y_1,y_2),\ y_1 \in \{Accept; Rejectg\}\ and\ y_2 \in \{hash(C_1),\perp \}$ -- verifier algorithm, which interacts with prover algorithm.\\\\
+The Weak Leakage-Resilient Client-Side Deduplication scheme, is refereed as $CSD$ shortly and is represented with four probabilistic polynomial-time algorithms $E$, $D$, $P$, $V$ .  $E$ is an encryption algorithm: $E(F,1^\lambda) 	\rightarrow (\tau, C_0, C_1)$, where $F$ is file, $\lambda$ is security parameter, $\tau$ encryption key and $C_0\ and\ C_1$ are cipher-texts: $C_0$ -- encrypted key and $C_1$ -- encrypted file. $D(\tau,C_1) \rightarrow F $ -- decodes $C_1$ cipher. $P(F) \rightarrow y_0,\  y_0 \in \{\tau,\perp\} $ -- prover algorithm , which interacts with verifier algorithm and outputs the encryption key $\tau$. $V(C_0) \rightarrow (y_1,y_2),\ y_1 \in \{Accept; Rejectg\}\ and\ y_2 \in \{hash(C_1),\perp \}$ -- verifier algorithm, which interacts with prover algorithm.\\\\
 The $CSD$ protocol involves the client and the server. When a client uploads the file first time on the server, it generates the random AES\cite{AES} key $\tau$ and two ciphers: $C_F$ and $C_\tau$. Where $C_F$ is an encrypted file, using AES encryption and generated  key $\tau$  and is almost as large as original file. While  $C_\tau$ is the encrypted random key $\tau$ generated by client, using some custom encryption method and the file $F$ as a key. And the size of $C_\tau$ is small number -- upper bounded by $|\tau|$. After the key and ciphers are generated, client sends hash value of original file $F$, together with two cipher $C_F$ and $C_\tau$.  Server receives the data form client, stores the encrypted file $C_F$ in secondary storage(large but slow storage). While meta-data of encrypted file is stored in primary storage and is represented as key-value pair entry in the lookup database: $(key = hash(F); value = (hash(C_F), C_\tau))$ , where $hash(C_F)$ is calculated by server and $hash(F)$ and $C_\tau$ is received from client.\\\\
 If client tries to upload the file -- already located on the server side, it first sends the $hash(F)$ to the server.  Based on the received $hash(F)$, the server identifies  the tuple $(hash(C_F),C_\tau)$ in the lookup database. It retrieves the $C_\tau$ value and sends back to client. If the client indeed owns the file, she can decrypt the cipher $C_\tau$ using the file as a decryption key and retrieve the ASE key $\tau$. After obtaining the AES key $\tau$, client encrypts the original file, computes the hash of it and sends the $hash(C_F)$ as a proof to the server. Server compares the received $hash(C_F)$ hash value, with the one kept in its database. If the values are equal then the client gains the access to the file, otherwise access is forbidden. After client is identified as honest, she can remove the original file and keep only the ASE key $\tau$, which she will use later for decrypting the downloaded file.\\\\
 
@@ -561,7 +555,7 @@ where $in_i$ and $tok_i$ are both events: $in_i$ --  i-th generated token, is a 
 \begin{equation}\label{2}
 P(tok_i)=p+(1-p)*0.5^l
 \end{equation}
-In order to succeed adversary needs to produce $J$ number of tokens form randomly chosen chunks. To compute the probability of success, we use these two formulas : $(1)$ and $(2)$
+In order to succeed adversary needs to produce $J$ number of tokens form randomly chosen chunks. To compute the probability of success, we use these two formulas : $(2)$ and $(3)$
 \begin{equation}\label{3}
 \begin{split}
 P(succ)& =P(in_i)^J=(P(tok_i)+p_fP(tok_i))^J\\
@@ -635,7 +629,7 @@ The probability of event $tok_i$ is decomposed as the probability of knowing the
 \begin{equation}\label{2}
  P(tok_i)=p+(1-p)*0.5^l
 \end{equation}
-Substitute $P(tok_i)$ in  formula $(1)$ with  formula $(2)$: 
+Substitute $P(tok_i)$ in  formula $(5)$ with  formula $(6)$: 
 \begin{equation}\label{3}
 P(succ) = P(tok_i)^J = (p+(1-p)*0.5^l)^J
 \end{equation}
@@ -1004,7 +998,7 @@ Size (MB)&Disk Read&Merkle Tree&Total&Disk Read&Algorithm&Total\\ \hline
 
 
 \end{tabular}
-\caption{Client Computation Time -- POF vs PoW }
+\caption{Client Computation Time -- POF vs PoW \cite{POF}}
 \label{table:asymptoticAnalysis}
 \end{table}
 \end{savenotes}
